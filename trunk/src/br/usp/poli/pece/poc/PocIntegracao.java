@@ -1,7 +1,6 @@
 package br.usp.poli.pece.poc;
 
 import java.util.ArrayList;
-import java.util.List;
 import javax.jws.*;
 
 @WebService(endpointInterface="br.usp.poli.pece.poc.PocIntegracaoInterface")
@@ -14,9 +13,9 @@ public class PocIntegracao implements PocIntegracaoInterface {
 		
 	}
 	
-	public ArrayList ListaAlunos()
+	public ArrayList<String> ListaAlunos()
 	{
-		ArrayList listaAlunos = new ArrayList(); 
+		ArrayList<String> listaAlunos = new ArrayList<String>(); 
 		
 		String[] nome = {"Virgilio", "Gabriel"};
 		listaAlunos.add(nome[0]);
