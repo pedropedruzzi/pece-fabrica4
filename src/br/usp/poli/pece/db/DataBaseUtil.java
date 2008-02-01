@@ -36,10 +36,11 @@ public class DataBaseUtil {
 	
 	public static void main(String[] args) throws ParseException {
 		criaPedro();
-		//criaTabelasPadr√£o();
+		//criaTabelasPadr„o();
+		
 	}
 	
-	private static void criaTabelasPadr√£o() {
+	private static void criaTabelasPadr„o() {
 		boolean criaMesmo = false;
 		SchemaExport schema = new SchemaExport(cfg);
 		schema.setOutputFile("sql/create.sql");
@@ -57,7 +58,7 @@ public class DataBaseUtil {
 			p.setNascimento(sdf.parse("27/04/1986"));
 		} catch (ParseException e) {}
 		p.setNome("Pedro Rodrigues Nacione Pedruzzi");
-		p.setEndereco("Alameda Rouxinol, 180 - Jardim do Sol - Santo Andr√© - SP");
+		p.setEndereco("Alameda Rouxinol, 180 - Jardim do Sol - Santo AndrÈ - SP");
 		p.setTelefone(1144210284);
 		
 		dbs.save(p);

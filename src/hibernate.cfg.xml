@@ -9,20 +9,20 @@
 
 		<!-- Database connection settings -->
 		<property name="connection.driver_class">
-			com.mysql.jdbc.Driver
+			org.postgresql.Driver
 		</property>
 		<property name="connection.url">
-			jdbc:mysql://localhost:3306/fabrica4
+			jdbc:postgresql://143.107.102.56/fabrica4
 		</property>
-		<property name="connection.username">root</property>
-		<property name="connection.password">admin</property>
+		<property name="connection.username">fabrica4</property>
+		<property name="connection.password">fabrica4</property>
 
 		<!-- JDBC connection pool (use the built-in) -->
 		<property name="connection.pool_size">1</property>
 
 		<!-- SQL dialect -->
 		<property name="dialect">
-			org.hibernate.dialect.MySQLInnoDBDialect
+			org.hibernate.dialect.PostgreSQLDialect
 		</property>
 
 		<!-- Enable Hibernate's automatic session context management -->
