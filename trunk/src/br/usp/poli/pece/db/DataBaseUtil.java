@@ -3,8 +3,10 @@ package br.usp.poli.pece.db;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-import org.hibernate.*;
-import org.hibernate.cfg.*;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
 import br.usp.poli.pece.bl.Pessoa;
