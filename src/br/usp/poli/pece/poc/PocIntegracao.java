@@ -5,12 +5,10 @@ import javax.jws.*;
 
 @WebService(endpointInterface="br.usp.poli.pece.poc.PocIntegracaoInterface")
 
-
 public class PocIntegracao implements PocIntegracaoInterface {
 	
 	public PocIntegracao()
 	{
-		
 	}
 	
 	public ArrayList<String> ListaAlunos()
@@ -23,5 +21,4 @@ public class PocIntegracao implements PocIntegracaoInterface {
 		
 		return listaAlunos;
 	}
-
 }
