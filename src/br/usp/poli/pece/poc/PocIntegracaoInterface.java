@@ -8,5 +8,5 @@ import javax.jws.*;
 
 public interface PocIntegracaoInterface {
 	
-	public ArrayList ListaAlunos();
+	public ArrayList<String> ListaAlunos();
 }
