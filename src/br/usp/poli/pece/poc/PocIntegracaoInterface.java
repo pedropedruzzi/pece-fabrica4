@@ -1,6 +1,6 @@
 package br.usp.poli.pece.poc;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.jws.*;
 
@@ -8,5 +8,5 @@ import javax.jws.*;
 
 public interface PocIntegracaoInterface {
 	
-	public ArrayList<String> ListaAlunos();
+	public List<String> listaAlunos();
 }
