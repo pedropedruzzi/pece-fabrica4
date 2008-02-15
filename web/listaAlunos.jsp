@@ -4,17 +4,24 @@
 <%@page import="br.usp.poli.pece.ws.WebServicesClient"%>
 <%@page import="br.usp.poli.pece.poc.PocIntegracaoInterface"%>
 <%@page import="java.util.List"%>
+<%@page import="br.usp.poli.pece.bl.Pessoa"%>
 <html>
 	<body>
-		Revistas cadastradas:<br>
+		Lista alunos cadastrados:<br>
+		<table>
+		<tr><th>Nome</th><th>Telefone</th></tr>
 		<%
 			PocIntegracaoInterface alunos = WebServicesClient.getAlunosWS();
-			List<String> lista = alunos.listaAlunos();
-			for (String aluno : lista) {
+			List<Pessoa> lista = alunos.listaAlunos();
+			for (Pessoa aluno : lista) {
 				%>
-				<%= aluno %><br>                                               
+				<tr>
+				<td><%= aluno.getNome() %></td>
+				<td><%= Long.toString(aluno.getTelefone()) %></td>
+				</tr>
 				<%
 			}
 		%>
+		</table>
 	</body>
 </html>
