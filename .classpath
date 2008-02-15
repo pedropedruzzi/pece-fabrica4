@@ -36,5 +36,6 @@
 	<classpathentry kind="lib" path="lib/wstx-asl-3.2.1.jar"/>
 	<classpathentry kind="lib" path="lib/xml-resolver-1.2.jar"/>
 	<classpathentry kind="lib" path="lib/XmlSchema-1.3.2.jar"/>
+	<classpathentry kind="lib" path="lib/antlr-3.0.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

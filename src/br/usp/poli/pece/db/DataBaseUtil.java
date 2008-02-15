@@ -36,11 +36,9 @@ public class DataBaseUtil {
 	
 	public static void main(String[] args) throws ParseException {
 		criaPedro();
-		//criaTabelasPadrão();
-		
 	}
 	
-	private static void criaTabelasPadrão() {
+	private static void exportaSchema() {
 		boolean criaMesmo = false;
 		SchemaExport schema = new SchemaExport(cfg);
 		schema.setOutputFile("sql/create.sql");
