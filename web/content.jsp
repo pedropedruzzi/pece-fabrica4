@@ -12,7 +12,7 @@
 			List<String> lista = alunos.listaAlunos();
 			for (String aluno : lista) {
 				%>
-				<%= aluno %><br>
+				<%= aluno %><br>                                               
 				<%
 			}
 		%>
