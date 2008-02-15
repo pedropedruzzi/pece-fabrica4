@@ -63,6 +63,7 @@ public class DataBaseUtil {
 		
 		dbs.save(p);
 		dbs.getTransaction().commit();
+		
 	}
 
 }
