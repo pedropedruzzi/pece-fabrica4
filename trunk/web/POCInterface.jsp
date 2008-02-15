@@ -9,9 +9,9 @@
 	<body>
 		<%		
 		Pessoa aluno = new Pessoa();
-		aluno.setEndereco(request.getAttribute("end_aluno").toString());
-		aluno.setNome(request.getAttribute("nome_aluno").toString());
-		aluno.setTelefone(Integer.parseInt(request.getAttribute("tel_aluno").toString()));
+		aluno.setEndereco(request.getParameter("end_aluno"));
+		aluno.setNome(request.getParameter("nome_aluno"));
+		aluno.setTelefone(Integer.parseInt(request.getParameter("tel_aluno")));
 		
 		PessoaDAO cadastroAlunoPOC = new PessoaDAO();
 		cadastroAlunoPOC.cadastroAluno(aluno);

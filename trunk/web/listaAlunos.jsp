@@ -8,7 +8,7 @@
 <html>
 	<body>
 		Lista alunos cadastrados:<br>
-		<table>
+		<table border='1'>
 		<tr><th>Nome</th><th>Telefone</th></tr>
 		<%
 			PocIntegracaoInterface alunos = WebServicesClient.getAlunosWS();
