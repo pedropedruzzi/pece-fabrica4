@@ -11,6 +11,7 @@ import br.usp.poli.pece.db.PessoaDAO;
 public class PocIntegracao implements PocIntegracaoInterface {
 	
 	public List<Pessoa> listaAlunos() {
+		System.out.println("teste");
 		return PessoaDAO.listaAlunos();
 	}
 }

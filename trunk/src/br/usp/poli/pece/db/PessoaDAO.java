@@ -15,7 +15,7 @@ public class PessoaDAO {
 	    List<Pessoa> result = (List<Pessoa>)dbs.createQuery("from Pessoa").list();
 
 	    dbs.getTransaction().commit();
-
+	    
 	    return result;
 	}
 	
