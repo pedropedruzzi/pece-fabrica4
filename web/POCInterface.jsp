@@ -13,8 +13,8 @@
 		aluno.setNome(request.getParameter("nome_aluno"));
 		aluno.setTelefone(Integer.parseInt(request.getParameter("tel_aluno")));
 		
-		PessoaDAO cadastroAlunoPOC = new PessoaDAO();
-		cadastroAlunoPOC.cadastroAluno(aluno);
+		PessoaDAO.cadastroAluno(aluno);
 		%>
+		<a href="index.html">Voltar</a>
 	</body>
 </html>
