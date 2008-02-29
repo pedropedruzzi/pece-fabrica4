@@ -1,9 +1,5 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-
-<!DOCTYPE web-app 
-    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" 
-    "http://java.sun.com/dtd/web-app_2_3.dtd">
-
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
 <web-app>
 
 
@@ -71,11 +67,66 @@
          You can define any number of servlets, including zero.
     -->
 
+    <context-param>
+        <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+        <param-value>client</param-value>
+    </context-param>
+    <context-param>
+        <param-name>com.sun.faces.validateXml</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <param-name>com.sun.faces.verifyObjects</param-name>
+        <param-value>false</param-value>
+    </context-param>
+    <filter>
+        <filter-name>UploadFilter</filter-name>
+        <filter-class>com.sun.webui.jsf.util.UploadFilter</filter-class>
+        <init-param>
+            <param-name>maxSize</param-name>
+            <param-value>1000000</param-value>
+            <description>The maximum allowed upload size in bytes.  If this is set to a negative value, there is no maximum.  The default value is 1000000.</description>
+        </init-param>
+        <init-param>
+            <param-name>sizeThreshold</param-name>
+            <param-value>4096</param-value>
+            <description>The size (in bytes) of an uploaded file which, if it is exceeded, will cause the file to be written directly to disk instead of stored in memory.  Files smaller than or equal to this size will be stored in memory.  The default value is 4096.</description>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>UploadFilter</filter-name>
+        <servlet-name>Faces Servlet</servlet-name>
+    </filter-mapping>
     <servlet>
         <servlet-name>content</servlet-name>
         <jsp-file>/content.jsp</jsp-file>
     </servlet>
 
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <init-param>
+            <param-name>javax.faces.LIFECYCLE_ID</param-name>
+            <param-value>com.sun.faces.lifecycle.PARTIAL</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>ExceptionHandlerServlet</servlet-name>
+        <servlet-class>com.sun.errorhandler.ExceptionHandler</servlet-class>
+        <init-param>
+            <param-name>errorHost</param-name>
+            <param-value>localhost</param-value>
+        </init-param>
+        <init-param>
+            <param-name>errorPort</param-name>
+            <param-value>24444</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>ThemeServlet</servlet-name>
+        <servlet-class>com.sun.webui.theme.ThemeServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>content</servlet-name>
         <url-pattern>/content*</url-pattern>
@@ -88,9 +139,40 @@
          the timeout for a particular session dynamically by using
          HttpSession.getMaxInactiveInterval(). -->
 
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExceptionHandlerServlet</servlet-name>
+        <url-pattern>/error/ExceptionHandler</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ThemeServlet</servlet-name>
+        <url-pattern>/theme/*</url-pattern>
+    </servlet-mapping>
     <session-config>
       <session-timeout>30</session-timeout>    <!-- 30 minutes -->
     </session-config>
 
 
-</web-app>
+    <welcome-file-list>
+        <welcome-file>faces/Index2.jsp</welcome-file>
+        </welcome-file-list>
+    <error-page>
+        <exception-type>javax.servlet.ServletException</exception-type>
+        <location>/error/ExceptionHandler</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.io.IOException</exception-type>
+        <location>/error/ExceptionHandler</location>
+    </error-page>
+    <error-page>
+        <exception-type>javax.faces.FacesException</exception-type>
+        <location>/error/ExceptionHandler</location>
+    </error-page>
+    <error-page>
+        <exception-type>com.sun.rave.web.ui.appbase.ApplicationException</exception-type>
+        <location>/error/ExceptionHandler</location>
+    </error-page>
+    </web-app>
