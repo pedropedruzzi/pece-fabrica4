@@ -19,7 +19,7 @@ public class Usuario {
 	//Construtor da Classe usuário
 	public Usuario ()
 	{
-		
+		//por enquanto vazio
 	}
 		
 	@Id @GeneratedValue
@@ -180,6 +180,12 @@ public class Usuario {
 		
 		//
 		UsuarioDAO.cadastraUsuario(usuario);
+	}
+	
+	//Update no banco
+	public static void atualizaUsuario()
+	{
+		
 	}
 	
 	
