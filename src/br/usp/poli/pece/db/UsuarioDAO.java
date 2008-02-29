@@ -1,15 +1,10 @@
 package br.usp.poli.pece.db;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.hibernate.Session;
 
-import br.usp.poli.pece.bl.Aluno;
-import br.usp.poli.pece.bl.Pessoa;
 import br.usp.poli.pece.bl.Usuario;
-import br.usp.poli.pece.poc.PocIntegracao;
 
 public class UsuarioDAO {
 	public static List<Usuario> ConsultaUsuario(String strFiltro) {

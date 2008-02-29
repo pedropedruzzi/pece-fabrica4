@@ -7,7 +7,6 @@ import org.apache.cxf.interceptor.LoggingOutInterceptor;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 
 import br.usp.poli.pece.bl.Pessoa;
-import br.usp.poli.pece.db.PessoaDAO;
 import br.usp.poli.pece.poc.PocIntegracaoInterface;
 
 public class WebServicesClient {
