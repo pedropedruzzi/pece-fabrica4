@@ -2,10 +2,6 @@ package br.usp.poli.pece.bl;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,15 +10,9 @@ import javax.persistence.InheritanceType;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(
-    name="tipo",
-    discriminatorType=DiscriminatorType.STRING
-)
-@DiscriminatorValue("Usuario")
 public class Usuario {
 	@Id @GeneratedValue
-	@Column(name="usuario_id")
-	private long id;
+	private long idUsuario;
 	
 	private String nome;
 	private String email;
@@ -44,11 +34,11 @@ public class Usuario {
 	private String cursosComplementares;
 	private String historicoProfissional;
 	
-	public long getId() {
-		return id;
+	public long getIdUsuario() {
+		return idUsuario;
 	}
-	public void setId(long id) {
-		this.id = id;
+	protected void setIdUsuario(long idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 	public String getNome() {
 		return nome;
