@@ -8,9 +8,20 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+import br.usp.poli.pece.db.UsuarioDAO;
+
+import java.util.List;
+
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Usuario {
+	
+	//Construtor da Classe usuário
+	public Usuario ()
+	{
+		
+	}
+		
 	@Id @GeneratedValue
 	private long idUsuario;
 	
@@ -154,6 +165,25 @@ public class Usuario {
 	public void setHistoricoProfissional(String historicoProfissional) {
 		this.historicoProfissional = historicoProfissional;
 	}
+	
+	//Métodos
+	
+	public static List<Usuario> consultaUsuario(String strFiltro)
+	{
+		return UsuarioDAO.ConsultaUsuario(strFiltro);
+	}
+	
+	public static void cadastraUsuario(Usuario usuario)
+	{
+		//TODO: Valida campos, etc..
+		
+		
+		//
+		UsuarioDAO.cadastraUsuario(usuario);
+	}
+	
+	
+	
 	
 
 
