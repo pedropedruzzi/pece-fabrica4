@@ -5,6 +5,7 @@
 <%@page import="br.usp.poli.pece.poc.PocIntegracaoInterface"%>
 <%@page import="java.util.List"%>
 <%@page import="br.usp.poli.pece.bl.Pessoa"%>
+<%@page import="br.usp.poli.pece.bl.Usuario"%>
 <html>
 	<body>
 		Lista alunos cadastrados:<br>
@@ -12,8 +13,8 @@
 		<tr><th>Nome</th><th>Telefone</th></tr>
 		<%
 			PocIntegracaoInterface alunos = WebServicesClient.getAlunosWS();
-			List<Pessoa> lista = alunos.listaAlunos();
-			for (Pessoa aluno : lista) {
+			List<Usuario> lista = alunos.consultaUsuarios("");
+			for (Usuario aluno : lista) {
 				%>
 				<tr>
 				<td><%= aluno.getNome() %></td>

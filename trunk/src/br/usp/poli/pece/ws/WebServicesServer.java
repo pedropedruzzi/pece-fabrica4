@@ -10,6 +10,7 @@ import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.apache.log4j.Logger;
 
 import br.usp.poli.pece.bl.Pessoa;
+import br.usp.poli.pece.bl.Usuario;
 import br.usp.poli.pece.poc.PocIntegracao;
 import br.usp.poli.pece.poc.PocIntegracaoInterface;
 
@@ -51,6 +52,18 @@ public class WebServicesServer {
 		PocIntegracaoInterface client = (PocIntegracaoInterface) factory.create();
 
 		List<Pessoa> lista = client.listaAlunos();
+		System.out.println(lista);
+	}
+	
+	public static void consultaAlunos() {
+		JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
+		factory.getInInterceptors().add(new LoggingInInterceptor());
+		factory.getOutInterceptors().add(new LoggingOutInterceptor());
+		factory.setServiceClass(PocIntegracaoInterface.class);
+		factory.setAddress("http://localhost:9000/PocIntegracao");
+		PocIntegracaoInterface client = (PocIntegracaoInterface) factory.create();
+
+		List<Usuario> lista = client.consultaUsuarios("");
 		System.out.println(lista);
 	}
 

@@ -20,7 +20,7 @@ public class UsuarioDAO {
 		//O filtro passado como parametro vai conter um pedaço do nome do
 		//usuario. Pode ser vazio tambem.
 	    List<Usuario> result = (List<Usuario>)dbs.createQuery("from Pessoa").list();
-
+	    System.out.println("TESTE");
 	    //dbs.getTransaction().commit();
 	    
 	    return result;
