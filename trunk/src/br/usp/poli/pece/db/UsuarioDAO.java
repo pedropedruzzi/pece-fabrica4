@@ -44,4 +44,10 @@ public class UsuarioDAO {
 		//dbs.getTransaction().commit();
 		
 	}
+	
+	public static void atualizaUsuario(Usuario objUsuario)
+	{
+		
+	}
+	
 }
