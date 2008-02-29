@@ -14,10 +14,10 @@
                 </webuijsf:head>
                 <webuijsf:body binding="#{Index2.body1}" id="body1" style="-rave-layout: grid">
                     <webuijsf:form binding="#{Index2.form1}" id="form1"/>
-                    <webuijsf:form binding="#{Index2.form2}" id="form2" style="height: 72px; left: 168px; top: 72px; position: absolute; width: 216px">
+                    <webuijsf:form binding="#{Index2.form2}" id="form2" style="height: 72px; left: 168px; top: 72px; position: absolute; width: 216px" target="POCInterface.jsp">
                         <webuijsf:button binding="#{Index2.button1}" id="button1" style="position: absolute; left: 144px; top: 48px" text="Botão"/>
-                        <webuijsf:textField binding="#{Index2.textField1}" id="textField1" style="position: absolute; left: 144px; top: 0px"/>
-                        <webuijsf:textField binding="#{Index2.textField2}" id="textField2" style="left: 144px; top: 24px; position: absolute"/>
+                        <webuijsf:textField binding="#{Index2.textField1}" id="textField1" style="position: absolute; left: 144px; top: 0px" text="nome_aluno"/>
+                        <webuijsf:textField binding="#{Index2.textField2}" id="textField2" style="left: 144px; top: 24px; position: absolute" text="end_aluno"/>
                         <webuijsf:staticText binding="#{Index2.staticText1}" id="staticText1" style="left: 72px; top: 0px; position: absolute" text="Nome:"/>
                         <webuijsf:staticText binding="#{Index2.staticText2}" id="staticText2" style="left: 72px; top: 24px; position: absolute" text="Endereco:"/>
                     </webuijsf:form>
