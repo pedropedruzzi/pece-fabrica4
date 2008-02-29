@@ -33,7 +33,7 @@ public class Usuario {
 	private String formacaoAcademica;
 	private String cursosComplementares;
 	private String historicoProfissional;
-	
+		
 	public long getIdUsuario() {
 		return idUsuario;
 	}
@@ -155,5 +155,7 @@ public class Usuario {
 		this.historicoProfissional = historicoProfissional;
 	}
 	
-	
+
+
+
 }
