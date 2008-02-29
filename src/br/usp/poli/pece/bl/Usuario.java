@@ -183,7 +183,7 @@ public class Usuario {
 	}
 	
 	//Update no banco
-	public static void atualizaUsuario()
+	public static void atualizaUsuario(Usuario objUsuario)
 	{
 		
 	}
