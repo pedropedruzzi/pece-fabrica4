@@ -24,7 +24,12 @@ public class WebServicesClient {
 	}
 	
 	public static void main(String[] args) {
+		/*
+		 * TODO
+		 */
+		
 		PocIntegracaoInterface alunos = WebServicesClient.getAlunosWS();
+		
 		
 		List<Pessoa> l = alunos.listaAlunos();
 		System.out.println("Retornou!");
