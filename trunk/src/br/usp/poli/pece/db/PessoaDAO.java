@@ -1,13 +1,10 @@
 package br.usp.poli.pece.db;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.hibernate.Session;
 
 import br.usp.poli.pece.bl.Pessoa;
-import br.usp.poli.pece.poc.PocIntegracao;
 
 public class PessoaDAO {
 	public static List<Pessoa> listaAlunos() {

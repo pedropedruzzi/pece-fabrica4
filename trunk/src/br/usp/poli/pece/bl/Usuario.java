@@ -1,6 +1,7 @@
 package br.usp.poli.pece.bl;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,8 +10,6 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
 import br.usp.poli.pece.db.UsuarioDAO;
-
-import java.util.List;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)

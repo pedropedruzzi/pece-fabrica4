@@ -2,6 +2,7 @@ package br.usp.poli.pece.ws;
 
 
 import java.util.List;
+
 import javax.xml.ws.Endpoint;
 
 import org.apache.cxf.interceptor.LoggingInInterceptor;
