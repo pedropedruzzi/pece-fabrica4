@@ -21,4 +21,39 @@ public class Turma {
 	
 	@OneToMany(mappedBy="turma")
 	private Set<Inscricao> inscricoes;
+
+	public String getCodTurma() {
+		return codTurma;
+	}
+
+	public void setCodTurma(String codTurma) {
+		this.codTurma = codTurma;
+	}
+
+	public Date getDataRegistro() {
+		return dataRegistro;
+	}
+
+	public void setDataRegistro(Date dataRegistro) {
+		this.dataRegistro = dataRegistro;
+	}
+
+	public Disciplina getDisciplina() {
+		return disciplina;
+	}
+
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
+	}
+
+	public Set<Inscricao> getInscricoes() {
+		return inscricoes;
+	}
+
+	public void setInscricoes(Set<Inscricao> inscricoes) {
+		this.inscricoes = inscricoes;
+	}
+	
+	
+	
 }

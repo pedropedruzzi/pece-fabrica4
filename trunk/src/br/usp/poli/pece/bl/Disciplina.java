@@ -17,4 +17,55 @@ public class Disciplina {
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private Curso curso;
+
+	public String getCodDisciplina() {
+		return codDisciplina;
+	}
+
+	public void setCodDisciplina(String codDisciplina) {
+		this.codDisciplina = codDisciplina;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public short getCargaHoraria() {
+		return cargaHoraria;
+	}
+
+	public void setCargaHoraria(short cargaHoraria) {
+		this.cargaHoraria = cargaHoraria;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public String getMaterialApoio() {
+		return materialApoio;
+	}
+
+	public void setMaterialApoio(String materialApoio) {
+		this.materialApoio = materialApoio;
+	}
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+	
+	
+	
 }
