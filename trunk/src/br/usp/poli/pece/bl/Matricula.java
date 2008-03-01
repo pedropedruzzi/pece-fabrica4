@@ -2,16 +2,18 @@ package br.usp.poli.pece.bl;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Matricula {
-	@ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Aluno aluno;
 	
-	@ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private Curso curso;
 	
+	@Id
 	private int numeroMatricula;
 	
 
