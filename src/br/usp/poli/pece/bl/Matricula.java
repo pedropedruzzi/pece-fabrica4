@@ -37,7 +37,7 @@ public class Matricula {
 		return numeroMatricula;
 	}
 
-	public void setNumeroMatricula(int numeroMatricula) {
+	protected void setNumeroMatricula(int numeroMatricula) {
 		this.numeroMatricula = numeroMatricula;
 	}
 
