@@ -12,11 +12,6 @@ public class Aluno extends Usuario {
 	@OneToMany(mappedBy="aluno")
 	private Set<Matricula> matriculas;
 	
-	/*
-	@OneToMany(mappedBy="aluno")
-	private Set<Inscricao> inscricoes;
-	*/
-	
 	@OneToMany(mappedBy="aluno")
 	private Set<Inscricao> inscricoes;
 	
