@@ -1,9 +1,11 @@
 package br.usp.poli.pece.bl;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
 public class Funcionario extends Usuario {
+	@Column(unique=true)
 	private String carteiraTrabalho;
 
 	public String getCarteiraTrabalho() {

@@ -6,18 +6,24 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
+@Table(uniqueConstraints={@UniqueConstraint(columnNames={"turma_id", "aluno_id"})})
 public class Inscricao {
 	@Id @GeneratedValue
 	private long id;
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinColumn(name="turma_id", nullable=false, updatable=false)
 	private Turma turma;
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinColumn(name="aluno_id", nullable=false, updatable=false)
 	private Aluno aluno;
 	
 	private short presencas;

@@ -3,6 +3,7 @@ package br.usp.poli.pece.bl;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,21 +16,34 @@ import br.usp.poli.pece.db.UsuarioDAO;
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Usuario {
 	
-	//Construtor da Classe usuário
+	//Construtor da Classe usuï¿½rio
 	public Usuario ()
 	{
 		//por enquanto vazio
 	}
 		
-	@Id @GeneratedValue
-	private long idUsuario;
 	
+	@Id @GeneratedValue
+	private long id;
+	
+	@Column(unique=true, nullable=false)
 	private String nome;
+	
+	@Column(unique=true, nullable=false)
 	private String email;
+	
+	@Column(unique=true, nullable=false, updatable=false)
 	private String login;
+	
+	@Column(nullable=false)
 	private String senha;
+	
+	@Column(unique=true)
 	private long rg;
+	
+	@Column(unique=true)
 	private long cpf;
+	
 	private Date dataExpRg;
 	private String localNascimento;
 	private Date dataNascimento;
@@ -44,11 +58,11 @@ public class Usuario {
 	private String cursosComplementares;
 	private String historicoProfissional;
 		
-	public long getIdUsuario() {
-		return idUsuario;
+	public long getId() {
+		return id;
 	}
-	protected void setIdUsuario(long idUsuario) {
-		this.idUsuario = idUsuario;
+	protected void setId(long id) {
+		this.id = id;
 	}
 	public String getNome() {
 		return nome;
@@ -165,7 +179,7 @@ public class Usuario {
 		this.historicoProfissional = historicoProfissional;
 	}
 	
-	//Métodos
+	//Mï¿½todos
 	
 	public static List<Usuario> consultaUsuario(String strFiltro)
 	{
