@@ -3,22 +3,29 @@ package br.usp.poli.pece.bl;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Curso {
+	@Id @GeneratedValue
+	protected long id;
+	
+	@Column(unique=true, nullable=false)
 	private String nome;
 	
-	@Id
+	@Column(unique=true, nullable=false)
 	private String codCurso;
 	
-	
-	private int cargaHoraria;
+	private short cargaHoraria;
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinColumn(nullable=false)
 	private Professor coordenador;
 	
 	@OneToMany(mappedBy="curso")
@@ -44,11 +51,11 @@ public class Curso {
 		this.codCurso = codCurso;
 	}
 
-	public int getCargaHoraria() {
+	public short getCargaHoraria() {
 		return cargaHoraria;
 	}
 
-	public void setCargaHoraria(int cargaHoraria) {
+	public void setCargaHoraria(short cargaHoraria) {
 		this.cargaHoraria = cargaHoraria;
 	}
 

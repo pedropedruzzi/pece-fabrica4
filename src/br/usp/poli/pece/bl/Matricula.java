@@ -2,20 +2,28 @@ package br.usp.poli.pece.bl;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
+@Table(uniqueConstraints={@UniqueConstraint(columnNames={"aluno_id", "curso_id"}), @UniqueConstraint(columnNames={"numero"})})
 public class Matricula {
+	@Id @GeneratedValue
+	protected long id;
+	
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinColumn(name="aluno_id", nullable=false, updatable=false)
     private Aluno aluno;
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinColumn(name="curso_id", nullable=false, updatable=false)
 	private Curso curso;
 	
-	@Id
-	private int numeroMatricula;
-	
+	private int numero;
 
 	public Aluno getAluno() {
 		return aluno;
@@ -33,12 +41,12 @@ public class Matricula {
 		this.curso = curso;
 	}
 
-	public int getNumeroMatricula() {
-		return numeroMatricula;
+	public int getNumero() {
+		return numero;
 	}
 
-	protected void setNumeroMatricula(int numeroMatricula) {
-		this.numeroMatricula = numeroMatricula;
+	protected void setNumero(int numero) {
+		this.numero = numero;
 	}
 
 }

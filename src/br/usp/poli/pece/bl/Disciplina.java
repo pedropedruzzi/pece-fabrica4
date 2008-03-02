@@ -1,21 +1,30 @@
 package br.usp.poli.pece.bl;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Disciplina {
-	@Id
+	@Id @GeneratedValue
+	protected long id;
+	
+	@Column(nullable=false, unique=true)
 	private String codDisciplina;
 	
+	@Column(nullable=false)
 	private String nome;
+	
 	private short cargaHoraria;
 	private String descricao;
 	private String materialApoio;
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinColumn(nullable=false, updatable=false)
 	private Curso curso;
 
 	public String getCodDisciplina() {
