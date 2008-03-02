@@ -42,7 +42,7 @@
 		-->
 		
 		<!-- List of annotated classes-->
-		<mapping class="br.usp.poli.pece.bl.Pessoa" />
+		<!-- <mapping class="br.usp.poli.pece.bl.Usuario" /> -->
 
 	</session-factory>
 

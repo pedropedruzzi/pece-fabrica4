@@ -56,4 +56,9 @@ public class Turma {
 	
 	
 	
+	public Curso getCurso() {
+		return this.getDisciplina().getCurso();
+	}
+	
+	
 }
