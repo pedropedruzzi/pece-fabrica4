@@ -1,13 +1,19 @@
 package br.usp.poli.pece.bl;
 
-import java.util.Map;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Inscricao {
+	@Id @GeneratedValue
+	private long id;
+	
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private Turma turma;
 	
@@ -16,8 +22,17 @@ public class Inscricao {
 	
 	private short presencas;
 	
-	private Map<String, Short> notas;
+	@OneToMany(mappedBy="inscricao")
+	private Set<Nota> notas;
 	
+
+	public long getId() {
+		return id;
+	}
+
+	protected void setId(long id) {
+		this.id = id;
+	}
 
 	public Turma getTurma() {
 		return turma;
@@ -43,14 +58,13 @@ public class Inscricao {
 		this.presencas = presencas;
 	}
 
-	public Map<String, Short> getNotas() {
+	public Set<Nota> getNotas() {
 		return notas;
 	}
 
-	public void setNotas(Map<String, Short> notas) {
+	public void setNotas(Set<Nota> notas) {
 		this.notas = notas;
 	}
-	
 	
 	
 }

@@ -19,22 +19,11 @@ public class PessoaDAO {
 	}
 	
 	public static void cadastroAluno(Pessoa aluno) {
-				
-		//SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		
 		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
+		
 		dbs.beginTransaction();
-		
-		//try {
-		//	aluno.setNascimento(sdf.parse("27/04/1986"));
-		//} catch (ParseException e) {}
-		//p.setNome("Pedro Rodrigues Nacione Pedruzzi");
-		//p.setEndereco("Alameda Rouxinol, 180 - Jardim do Sol - Santo André - SP");
-		//p.setTelefone(1144210284);
-		
 		dbs.save(aluno);
 		dbs.getTransaction().commit();
-		
 	}
 	
 	public static void main(String[] args) {

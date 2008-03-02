@@ -2,8 +2,10 @@ package br.usp.poli.pece.bl;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -15,6 +17,8 @@ public class Curso {
 	
 	
 	private int cargaHoraria;
+	
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private Professor coordenador;
 	
 	@OneToMany(mappedBy="curso")

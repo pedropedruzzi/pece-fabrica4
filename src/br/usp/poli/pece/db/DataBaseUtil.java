@@ -6,20 +6,34 @@ import java.text.SimpleDateFormat;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
-import br.usp.poli.pece.bl.Pessoa;
+import br.usp.poli.pece.bl.*;
 
 public class DataBaseUtil {
 
 	private static final SessionFactory sessionFactory;
-	private static final Configuration cfg;
+	private static final AnnotationConfiguration cfg;
 
 	static {
 		try {
 			// Create the SessionFactory from hibernate.cfg.xml
-			cfg = new AnnotationConfiguration().configure();
+			cfg = new AnnotationConfiguration();
+			cfg.configure();
+			
+			cfg.addAnnotatedClass(Aluno.class);
+			cfg.addAnnotatedClass(Curso.class);
+			cfg.addAnnotatedClass(Disciplina.class);
+			cfg.addAnnotatedClass(Funcionario.class);
+			cfg.addAnnotatedClass(Inscricao.class);
+			cfg.addAnnotatedClass(Matricula.class);
+			cfg.addAnnotatedClass(Nota.class);
+			cfg.addAnnotatedClass(Pessoa.class);
+			cfg.addAnnotatedClass(Professor.class);
+			cfg.addAnnotatedClass(Turma.class);
+			cfg.addAnnotatedClass(Usuario.class);
+			
+			
 			sessionFactory = cfg.buildSessionFactory();
 		} catch (Throwable ex) {
 			// Make sure you log the exception, as it might be swallowed
@@ -35,7 +49,8 @@ public class DataBaseUtil {
 
 	
 	public static void main(String[] args) throws ParseException {
-		criaPedro();
+		//criaPedro();
+		exportaSchema();
 	}
 	
 	private static void exportaSchema() {
@@ -56,7 +71,7 @@ public class DataBaseUtil {
 			p.setNascimento(sdf.parse("27/04/1986"));
 		} catch (ParseException e) {}
 		p.setNome("Pedro Rodrigues Nacione Pedruzzi");
-		p.setEndereco("Alameda Rouxinol, 180 - Jardim do Sol - Santo André - SP");
+		p.setEndereco("Alameda Rouxinol, 180 - Jardim do Sol - Santo Andrï¿½ - SP");
 		p.setTelefone(1144210284);
 		
 		dbs.save(p);
