@@ -16,7 +16,7 @@ public class Nota {
 	protected long id;
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity=Inscricao.class)
-	@JoinColumn(name="inscricao_id", insertable=false, updatable=false, nullable=false)
+	@JoinColumn(name="inscricao_id", updatable=false, nullable=false)
 	private Inscricao inscricao;
 	
 	@Column(nullable=false)
