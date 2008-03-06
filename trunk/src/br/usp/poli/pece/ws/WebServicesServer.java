@@ -23,7 +23,7 @@ public class WebServicesServer {
 	
 	public void start() {
 		logger.info("Starting Server... ");
-		String address = "http://0.0.0.0:9000/PocIntegracao";
+		String address = "http://143.107.102.47:9000/PocIntegracao";
 		alunos = Endpoint.publish(address, new PocIntegracao());
 		logger.info("Done!");
 	}
