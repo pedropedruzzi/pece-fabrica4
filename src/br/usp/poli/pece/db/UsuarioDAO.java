@@ -21,7 +21,7 @@ public class UsuarioDAO {
 	    return result;
 	}
 	
-	public static void cadastraUsuario(Usuario usuario) {
+	public static void cadastraUsuario(Usuario objUsuario) {
 		
 		//SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
