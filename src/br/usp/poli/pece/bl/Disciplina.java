@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import br.usp.poli.pece.db.DisciplinaDAO;
+
 @Entity
 public class Disciplina {
 	@Id @GeneratedValue
@@ -73,6 +75,10 @@ public class Disciplina {
 
 	public void setCurso(Curso curso) {
 		this.curso = curso;
+	}
+	
+	public void CadastroDisciplina(Disciplina disciplina) {
+		DisciplinaDAO.cadastroDisciplina(disciplina);
 	}
 	
 	
