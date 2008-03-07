@@ -7,7 +7,7 @@ import javax.jws.WebService;
 import br.usp.poli.pece.bl.Aluno;
 import br.usp.poli.pece.db.UsuarioDAO;
 
-@WebService(endpointInterface="br.usp.poli.pece.ws.AcademicoUsuario")
+@WebService(endpointInterface="br.usp.poli.pece.ws.AcademicoAluno")
 public class AcademicoAlunoImpl implements AcademicoAluno {
 	
 	//Lista alunos
