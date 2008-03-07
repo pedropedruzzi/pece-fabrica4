@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import br.usp.poli.pece.db.MatriculaDAO;
+
 @Entity
 @Table(uniqueConstraints={@UniqueConstraint(columnNames={"aluno_id", "curso_id"}), @UniqueConstraint(columnNames={"numero"})})
 public class Matricula {
@@ -80,4 +82,8 @@ public class Matricula {
 		this.status = status;
 	}
 
+	
+	public void cadastrarMatricula(Matricula matricula) {
+		MatriculaDAO.cadastroMatricula(matricula);
+	}
 }
