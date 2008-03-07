@@ -34,6 +34,18 @@ public class Curso {
 	@OneToMany(mappedBy="curso")
 	private Set<Matricula> matriculas;
 	
+	private String descricao;
+	
+	
+
+
+	protected long getId() {
+		return id;
+	}
+
+	protected void setId(long id) {
+		this.id = id;
+	}
 	
 	public String getNome() {
 		return nome;
@@ -81,6 +93,14 @@ public class Curso {
 
 	public void setMatriculas(Set<Matricula> matriculas) {
 		this.matriculas = matriculas;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 	
 	
