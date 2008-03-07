@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Transient;
 
 import br.usp.poli.pece.db.UsuarioDAO;
 
@@ -20,10 +21,10 @@ public class Usuario {
 	private long id;
 	
 	@Column(nullable=false)
-	private String nome;
+	private String nome = "";
 	
 	@Column(unique=true, nullable=false)
-	private String email;
+	private String email = "";
 	
 	@Column(unique=true, nullable=false, updatable=false)
 	private String login;
@@ -32,10 +33,10 @@ public class Usuario {
 	private String senha;
 	
 	@Column(unique=true)
-	private long rg;
+	private Long rg;
 	
 	@Column(unique=true)
-	private long cpf;
+	private Long cpf;
 	
 	private Date dataExpRg;
 	private String localNascimento;
@@ -50,6 +51,7 @@ public class Usuario {
 	private String formacaoAcademica;
 	private String cursosComplementares;
 	private String historicoProfissional;
+	@Transient
 	private String _strUltimoErro;
 	
 		
@@ -83,16 +85,16 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public long getRg() {
+	public Long getRg() {
 		return rg;
 	}
-	public void setRg(long rg) {
+	public void setRg(Long rg) {
 		this.rg = rg;
 	}
-	public long getCpf() {
+	public Long getCpf() {
 		return cpf;
 	}
-	public void setCpf(long cpf) {
+	public void setCpf(Long cpf) {
 		this.cpf = cpf;
 	}
 	public Date getDataExpRg() {
@@ -185,11 +187,11 @@ public class Usuario {
 	}
 	
 	//Cadastra usuario no banco e retorna um booleano de confirmacao.
-	public boolean cadastraUsuario(Usuario objUsuario)
+	public boolean cadastraUsuario()
 	{
 		boolean blnRetVal = true;
-		if (ValidaUsuario(objUsuario))
-			UsuarioDAO.cadastraUsuario(objUsuario);
+		if (ValidaUsuario())
+			UsuarioDAO.cadastraUsuario(this);
 		else
 			blnRetVal = false;
 		
@@ -201,7 +203,7 @@ public class Usuario {
 	public boolean atualizaUsuario(Usuario objUsuario)
 	{
 		boolean blnRetVal = true;
-		if (ValidaUsuario(objUsuario))
+		if (ValidaUsuario())
 			UsuarioDAO.atualizaUsuario(objUsuario);
 		else
 			blnRetVal = false;
@@ -211,15 +213,15 @@ public class Usuario {
 	
 	// Verifica preenchimento das propriedades "nome" e "email" de um 
 	// usuario.
-	private boolean ValidaUsuario(Usuario objUsuario)
+	private boolean ValidaUsuario()
 	{
 		boolean blnRetVal = true;
-		if (objUsuario.nome == "")
+		if (nome.length() == 0)
 		{
 			_strUltimoErro = "O campo 'nome' deve ser preenchido";
 			blnRetVal = false;
 		}
-		if (objUsuario.email == "")
+		if (email.length() == 0)
 		{
 			_strUltimoErro = "O campo 'email' deve ser preenchido";
 			blnRetVal = false;
