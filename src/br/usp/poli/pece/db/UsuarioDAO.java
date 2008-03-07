@@ -9,31 +9,32 @@ import br.usp.poli.pece.bl.Aluno;
 
 public class UsuarioDAO {
 	
-	//TODO: BD
+	/*
+	 * Consulta usuarios passando parte do nome
+	 */
 	public static List<Usuario> consultaUsuario(String strFiltro) {
 		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
 		dbs.beginTransaction();
-		
 
-		//O filtro passado como parametro vai conter um pedaço do nome do
-		//usuario. Pode ser vazio tambem.
-	    List<Usuario> result = (List<Usuario>)dbs.createQuery("from Pessoa").list();
-	    System.out.println("TESTE");
-	    //dbs.getTransaction().commit();
+		//TODO: Considerar o filtro
+	    List<Usuario> result = (List<Usuario>)dbs.createQuery("from Usuario").list();
+	    
+	    dbs.getTransaction().commit();
 	    
 	    return result;
 	}
-	
+
+	/*
+	 * Consulta alunos passando parte do nome
+	 */
 	public static List<Aluno> consultaAluno(String strFiltro) {
 		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
 		dbs.beginTransaction();
-		
 
-		//O filtro passado como parametro vai conter um pedaço do nome do
-		//usuario. Pode ser vazio tambem.
-	    List<Aluno> result = (List<Aluno>)dbs.createQuery("from Pessoa").list();
-	    System.out.println("TESTE");
-	    //dbs.getTransaction().commit();
+		//TODO: Considerar o filtro e o tipo==aluno
+	    List<Aluno> result = (List<Aluno>)dbs.createQuery("from Usuario").list();
+	    
+	    dbs.getTransaction().commit();
 	    
 	    return result;
 	}
