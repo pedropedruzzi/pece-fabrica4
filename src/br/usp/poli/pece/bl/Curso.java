@@ -11,6 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import br.usp.poli.pece.db.CursoDAO;
+
+
 @Entity
 public class Curso {
 	@Id @GeneratedValue
@@ -104,7 +107,7 @@ public class Curso {
 	}
 	
 	public void cadstroCurso(Curso curso) {
-		CursoDAO.cadstroCurso(curso);
+		CursoDAO.cadastroCurso(curso);
 	}
 	
 }
