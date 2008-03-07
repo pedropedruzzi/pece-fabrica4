@@ -16,17 +16,10 @@ import br.usp.poli.pece.db.UsuarioDAO;
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Usuario {
 	
-	//Construtor da Classe usu�rio
-	public Usuario ()
-	{
-		//por enquanto vazio
-	}
-		
-	
 	@Id @GeneratedValue
 	private long id;
 	
-	@Column(unique=true, nullable=false)
+	@Column(nullable=false)
 	private String nome;
 	
 	@Column(unique=true, nullable=false)
@@ -181,8 +174,10 @@ public class Usuario {
 		this.historicoProfissional = historicoProfissional;
 	}
 	
+
 	//Metodos
 	
+
 	// Busca todos os usuarios no banco, de acordo com o filtro.
 	public static List<Usuario> consultaUsuario(String strFiltro)
 	{
@@ -236,5 +231,4 @@ public class Usuario {
 	{
 		return _strUltimoErro;
 	}
-			
 }
