@@ -1,0 +1,82 @@
+body {
+	height: 100%;
+	background-image: url("../images/background.jpg");
+}
+div.wrapper {
+	height: 100%;
+	vertical-align: top;
+	position: absolute;
+	top: 0;
+}
+div.top {
+	width: 980px;
+	text-align: center;
+	vertical-align: top;
+}
+div.menu {
+	height: 100%;
+	text-align: left;
+	vertical-align: top;
+	position: absolute;
+	left: 20px;
+	width: 140px;
+}
+div.sitemap {
+	width: 133px;
+	text-align: center;
+	vertical-align: top;
+	position: absolute;
+	top: 160px;
+	border: 1px #333333 solid;
+	background-color: #FFFFFF;
+}
+div.content {
+	width: 788px;
+	height: 100%;
+	text-align: right;
+	vertical-align: top;
+	position: absolute;
+	right: 25px;
+	border: 1px #333333 solid;
+	background-color: #FFFFFF;
+}
+
+iframe.sitemap_frame {
+	width: 133px;
+	height: 300px;
+}
+iframe.content_frame {
+	width: 788px;
+	height: 100%;
+}
+
+img {
+	border: 0px;
+}
+a {
+	border: 0px;
+}
+a.acadm {
+	position: absolute;
+	top: 0px;
+}
+a.crm {
+	position: absolute;
+	top: 25px;
+}
+a.finan {
+	position: absolute;
+	top: 50px;
+}
+a.infra {
+	position: absolute;
+	top: 75px;
+}
+a.markt {
+	position: absolute;
+	top: 100px;
+}
+a.strtg {
+	position: absolute;
+	top: 125px;
+}
