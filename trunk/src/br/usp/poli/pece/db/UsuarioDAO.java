@@ -7,11 +7,13 @@ import org.hibernate.Session;
 import br.usp.poli.pece.bl.Usuario;
 
 public class UsuarioDAO {
+	
+	//TODO: BD
 	public static List<Usuario> ConsultaUsuario(String strFiltro) {
 		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
 		dbs.beginTransaction();
 		
-		//TODO:
+
 		//O filtro passado como parametro vai conter um pedaço do nome do
 		//usuario. Pode ser vazio tambem.
 	    List<Usuario> result = (List<Usuario>)dbs.createQuery("from Pessoa").list();
@@ -21,6 +23,7 @@ public class UsuarioDAO {
 	    return result;
 	}
 	
+	//TODO: BD
 	public static void cadastraUsuario(Usuario objUsuario) {
 		
 		//SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -40,6 +43,7 @@ public class UsuarioDAO {
 		
 	}
 	
+	//TODO: BD
 	public static void atualizaUsuario(Usuario objUsuario)
 	{
 		
