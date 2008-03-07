@@ -7,6 +7,13 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Aluno extends Usuario {
+	
+	//Construtor
+	public Aluno ()
+	{
+		//TODO:
+	}
+	
 	@OneToMany(mappedBy="aluno")
 	private Set<Matricula> matriculas;
 	
