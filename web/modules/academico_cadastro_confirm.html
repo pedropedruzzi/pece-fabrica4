@@ -3,12 +3,21 @@
     Created on : 07/03/2008, 00:47:06
     Author     : Leonardo
 -->
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
+  <%@page import="br.usp.poli.pece.bl.Usuario"%>
+  <head>  
     <link rel="stylesheet" type="text/css" href="../css/frame.css" />
-    <title>Confirmação de CAdastro</title>
+    <title>Confirmação de Cadastro</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <%		
+		Usuario user = new Usuario();		
+		user.setSenha(request.getParameter("senha"));
+		user.setLogin(request.getParameter("login"));
+		user.setNome(request.getParameter("nome"));
+		user.setEmail(request.getParameter("email"));		
+	%>
   </head>
   <body>
       <h2>Cadastro Realizado com sucesso</h2>
