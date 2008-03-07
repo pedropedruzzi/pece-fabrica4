@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.jws.WebService;
 
-import br.usp.poli.pece.bl.Usuario;
+import br.usp.poli.pece.bl.Aluno;
 import br.usp.poli.pece.db.UsuarioDAO;
 
 @WebService(endpointInterface="br.usp.poli.pece.ws.AcademicoUsuario")
-public class AcademicoUsuarioImpl implements AcademicoUsuario {
+public class AcademicoAlunoImpl implements AcademicoAluno {
 	
 	//Lista alunos
-	public List<Usuario> consultaUsuarios(String strFiltro) {
-		return UsuarioDAO.ConsultaUsuario(strFiltro);
+	public List<Aluno> consultaAluno(String strFiltro) {
+		return UsuarioDAO.consultaAluno(strFiltro);
 	}
 }
