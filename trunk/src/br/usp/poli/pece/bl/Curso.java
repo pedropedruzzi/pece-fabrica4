@@ -103,6 +103,8 @@ public class Curso {
 		this.descricao = descricao;
 	}
 	
-	
+	public void cadstroCurso(Curso curso) {
+		CursoDAO.cadstroCurso(curso);
+	}
 	
 }
