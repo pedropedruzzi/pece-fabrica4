@@ -1,5 +1,7 @@
 package br.usp.poli.pece.bl;
 
+import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,6 +26,19 @@ public class Matricula {
 	private Curso curso;
 	
 	private int numero;
+	
+	private Date data;
+	
+	private String status;
+
+
+	protected long getId() {
+		return id;
+	}
+
+	protected void setId(long id) {
+		this.id = id;
+	}
 
 	public Aluno getAluno() {
 		return aluno;
@@ -47,6 +62,22 @@ public class Matricula {
 
 	protected void setNumero(int numero) {
 		this.numero = numero;
+	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 }
