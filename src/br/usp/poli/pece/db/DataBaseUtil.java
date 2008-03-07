@@ -27,7 +27,6 @@ public class DataBaseUtil {
 			cfg.addAnnotatedClass(Funcionario.class);
 			cfg.addAnnotatedClass(Inscricao.class);
 			cfg.addAnnotatedClass(Matricula.class);
-			cfg.addAnnotatedClass(Nota.class);
 			cfg.addAnnotatedClass(Pessoa.class);
 			cfg.addAnnotatedClass(Professor.class);
 			cfg.addAnnotatedClass(Turma.class);
