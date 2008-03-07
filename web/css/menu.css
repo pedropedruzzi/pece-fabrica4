@@ -1,0 +1,33 @@
+body {
+	font-family: Arial, Verdana;
+	background-color: #FFFFFF;
+}
+p {
+	font-size: 11px;
+}
+ul {
+	margin: 0px;
+	padding-left: 15px;
+	list-style-image: url(../images/bullet.gif);
+}
+li {
+	text-align: left;
+	font-family: Arial, Verdana;
+	font-size: 11px;
+}
+a {
+	font-size: 11px;
+	color: #000000;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+input {
+	width: 70px;
+	height: 16px;
+	font-size: 9px;
+	font-family: Arial, Verdana;
+	position: absolute;
+	left: 52px;
+}
