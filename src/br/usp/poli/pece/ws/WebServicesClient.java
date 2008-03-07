@@ -7,7 +7,6 @@ import org.apache.cxf.interceptor.LoggingOutInterceptor;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 
 import br.usp.poli.pece.bl.Aluno;
-import br.usp.poli.pece.poc.PocIntegracaoInterface;
 
 public class WebServicesClient {
 	
