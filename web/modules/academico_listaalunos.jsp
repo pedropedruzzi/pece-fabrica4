@@ -1,7 +1,7 @@
 <%-- 
-    Document   : Cadastro
-    Created on : 29/02/2008, 10:35:12
-    Author     : labsoft_adm
+    Document   : academico_listaalunos
+    Created on : 07/03/2008, 01:04:54
+    Author     : Leonardo
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -14,6 +14,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h2>Hello World!</h2>
+        <h2>Baixar via Web Service</h2>
     </body>
 </html>
