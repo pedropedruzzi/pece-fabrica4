@@ -1,14 +1,11 @@
 package br.usp.poli.pece.bl;
 
-import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -28,8 +25,9 @@ public class Inscricao {
 	
 	private short presencas;
 	
-	@OneToMany(mappedBy="inscricao")
-	private Set<Nota> notas;
+	private short nota;
+	
+	private short notaTF;
 	
 
 	public long getId() {
@@ -64,13 +62,22 @@ public class Inscricao {
 		this.presencas = presencas;
 	}
 
-	public Set<Nota> getNotas() {
-		return notas;
+	public short getNota() {
+		return nota;
 	}
 
-	public void setNotas(Set<Nota> notas) {
-		this.notas = notas;
+	public void setNota(short nota) {
+		this.nota = nota;
 	}
+
+	public short getNotaTF() {
+		return notaTF;
+	}
+
+	public void setNotaTF(short notaTF) {
+		this.notaTF = notaTF;
+	}
+	
 	
 	
 }
