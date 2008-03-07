@@ -1,4 +1,4 @@
-package br.usp.poli.pece.ws.Usuario;
+package br.usp.poli.pece.ws;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package br.usp.poli.pece.ws.Usuario;
+package br.usp.poli.pece.ws;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import br.usp.poli.pece.bl.Usuario;
 import br.usp.poli.pece.db.UsuarioDAO;
 
 @WebService(endpointInterface="br.usp.poli.pece.ws.AcademicoUsuario")
-public class WebServiceUsuario implements AcademicoUsuario {
+public class AcademicoUsuarioImpl implements AcademicoUsuario {
 	
 	//Lista alunos
 	public List<Usuario> consultaUsuarios(String strFiltro) {
