@@ -19,6 +19,6 @@ public class PocIntegracao implements PocIntegracaoInterface {
 	
 	//Lista alunos
 	public List<Usuario> consultaUsuarios(String strFiltro) {
-		return UsuarioDAO.ConsultaUsuario(strFiltro);
+		return UsuarioDAO.consultaUsuario(strFiltro);
 	}
 }

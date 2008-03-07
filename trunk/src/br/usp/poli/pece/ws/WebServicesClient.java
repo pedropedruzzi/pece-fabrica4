@@ -6,36 +6,36 @@ import org.apache.cxf.interceptor.LoggingInInterceptor;
 import org.apache.cxf.interceptor.LoggingOutInterceptor;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 
-import br.usp.poli.pece.bl.Pessoa;
+import br.usp.poli.pece.bl.Aluno;
 import br.usp.poli.pece.poc.PocIntegracaoInterface;
 
 public class WebServicesClient {
 	
-	public static PocIntegracaoInterface getAlunosWS() {
+	public static AcademicoAluno getAlunosWS() {
 		JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
 		factory.getInInterceptors().add(new LoggingInInterceptor());
 		factory.getOutInterceptors().add(new LoggingOutInterceptor());
-		factory.setServiceClass(PocIntegracaoInterface.class);
-		factory.setAddress("http://143.107.102.47:9000/PocIntegracao");
-		PocIntegracaoInterface client = (PocIntegracaoInterface) factory.create();
+		factory.setServiceClass(AcademicoAluno.class);
+		factory.setAddress("http://143.107.102.47:9000/AcademicoAluno");
+		AcademicoAluno client = (AcademicoAluno) factory.create();
 
 		return client;
 	}
 	
+	
+	//Teste para funcoes de aluno
 	public static void main(String[] args) {
 		/*
 		 * TODO
 		 */
-		
-		PocIntegracaoInterface alunos = WebServicesClient.getAlunosWS();
-		
-		
-		List<Pessoa> l = alunos.listaAlunos();
+		AcademicoAluno aluno = WebServicesClient.getAlunosWS();
+				
+		List<Aluno> l = aluno.consultaAluno("");
 		System.out.println("Retornou!");
 		
 		System.out.println("Tamanho: " + l.size());
 		
-		for (Pessoa p : l)
-			System.out.println(p.getNome());
+		for (Aluno a : l)
+			System.out.println(a.getNome());
 	}
 }

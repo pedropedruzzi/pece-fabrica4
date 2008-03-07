@@ -178,12 +178,16 @@ public class Usuario {
 	
 
 	//Metodos
-	
-
 	// Busca todos os usuarios no banco, de acordo com o filtro.
 	public static List<Usuario> consultaUsuario(String strFiltro)
 	{
-		return UsuarioDAO.ConsultaUsuario(strFiltro);
+		return UsuarioDAO.consultaUsuario(strFiltro);
+	}
+	
+	// Busca todos os usuarios no banco, de acordo com o filtro.
+	public static List<Aluno> consultaAluno(String strFiltro)
+	{
+		return UsuarioDAO.consultaAluno(strFiltro);
 	}
 	
 	//Cadastra usuario no banco e retorna um booleano de confirmacao.

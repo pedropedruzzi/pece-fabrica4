@@ -1,19 +1,9 @@
 package br.usp.poli.pece.ws;
 
 
-import java.util.List;
-
 import javax.xml.ws.Endpoint;
-
-import org.apache.cxf.interceptor.LoggingInInterceptor;
-import org.apache.cxf.interceptor.LoggingOutInterceptor;
-import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.apache.log4j.Logger;
-
-import br.usp.poli.pece.bl.Pessoa;
-import br.usp.poli.pece.bl.Usuario;
-import br.usp.poli.pece.poc.PocIntegracao;
-import br.usp.poli.pece.poc.PocIntegracaoInterface;
+import br.usp.poli.pece.ws.AcademicoAlunoImpl;
 
 public class WebServicesServer {
 	
@@ -23,8 +13,8 @@ public class WebServicesServer {
 	
 	public void start() {
 		logger.info("Starting Server... ");
-		String address = "http://143.107.102.47:9000/PocIntegracao";
-		alunos = Endpoint.publish(address, new PocIntegracao());
+		String address = "http://143.107.102.47:9000/AcademicoUsuario";
+		alunos = Endpoint.publish(address, new AcademicoAlunoImpl());
 		logger.info("Done!");
 	}
 	
@@ -33,39 +23,8 @@ public class WebServicesServer {
 		alunos = null;
 	}
 
-
 	public static void main(String[] args) {
 		WebServicesServer wss = new WebServicesServer();
 		wss.start();
-		/*
-		clientTest();
-		
-		wss.stop();
-		*/
 	}
-	
-	public static void clientTest() {
-		JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
-		factory.getInInterceptors().add(new LoggingInInterceptor());
-		factory.getOutInterceptors().add(new LoggingOutInterceptor());
-		factory.setServiceClass(PocIntegracaoInterface.class);
-		factory.setAddress("http://localhost:9000/PocIntegracao");
-		PocIntegracaoInterface client = (PocIntegracaoInterface) factory.create();
-
-		List<Pessoa> lista = client.listaAlunos();
-		System.out.println(lista);
-	}
-	
-	public static void consultaAlunos() {
-		JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
-		factory.getInInterceptors().add(new LoggingInInterceptor());
-		factory.getOutInterceptors().add(new LoggingOutInterceptor());
-		factory.setServiceClass(PocIntegracaoInterface.class);
-		factory.setAddress("http://localhost:9000/PocIntegracao");
-		PocIntegracaoInterface client = (PocIntegracaoInterface) factory.create();
-
-		List<Usuario> lista = client.consultaUsuarios("");
-		System.out.println(lista);
-	}
-
 }
