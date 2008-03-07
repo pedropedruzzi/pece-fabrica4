@@ -57,6 +57,8 @@ public class Usuario {
 	private String formacaoAcademica;
 	private String cursosComplementares;
 	private String historicoProfissional;
+	private String _strUltimoErro;
+	
 		
 	public long getId() {
 		return id;
@@ -179,32 +181,59 @@ public class Usuario {
 		this.historicoProfissional = historicoProfissional;
 	}
 	
-	//M�todos
+	//Metodos
 	
 	public static List<Usuario> consultaUsuario(String strFiltro)
 	{
 		return UsuarioDAO.ConsultaUsuario(strFiltro);
 	}
 	
-	public static void cadastraUsuario(Usuario usuario)
+	//Cadastra usuario no banco e retorna um booleano de confirmacao.
+	public boolean cadastraUsuario(Usuario objUsuario)
 	{
-		//TODO: Valida campos, etc..
+		boolean blnRetVal = true;
+		if (ValidaUsuario(objUsuario))
+			UsuarioDAO.cadastraUsuario(objUsuario);
+		else
+			blnRetVal = false;
 		
+		return blnRetVal;
 		
-		//
-		UsuarioDAO.cadastraUsuario(usuario);
 	}
-	
+		
 	//Update no banco
-	public static void atualizaUsuario(Usuario objUsuario)
+	public boolean atualizaUsuario(Usuario objUsuario)
 	{
+		boolean blnRetVal = true;
+		if (ValidaUsuario(objUsuario))
+			UsuarioDAO.atualizaUsuario(objUsuario);
+		else
+			blnRetVal = false;
 		
+		return blnRetVal;
 	}
 	
+	// Verifica preenchimento das propriedades "nome" e "email" de um 
+	// usuario.
+	private boolean ValidaUsuario(Usuario objUsuario)
+	{
+		boolean blnRetVal = true;
+		if (objUsuario.nome == "")
+		{
+			_strUltimoErro = "O campo 'nome' deve ser preenchido";
+			blnRetVal = false;
+		}
+		if (objUsuario.email == "")
+		{
+			_strUltimoErro = "O campo 'email' deve ser preenchido";
+			blnRetVal = false;
+		}
+		return blnRetVal;
+	}
 	
-	
-	
-
-
-
+	public String ObtemUltimoErro()
+	{
+		return _strUltimoErro;
+	}
+			
 }
