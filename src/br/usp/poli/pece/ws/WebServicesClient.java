@@ -32,6 +32,11 @@ public class WebServicesClient {
 		List<Aluno> l = aluno.consultaAluno("");
 		System.out.println("Daqui!");
 		
+		if (l == null) {
+			System.out.println("null!");
+			return;
+		}
+		
 		System.out.println("Tamanho: " + l.size());
 		
 		for (Aluno a : l)
