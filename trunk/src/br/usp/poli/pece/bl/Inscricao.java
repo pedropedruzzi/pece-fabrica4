@@ -77,7 +77,4 @@ public class Inscricao {
 	public void setNotaTF(short notaTF) {
 		this.notaTF = notaTF;
 	}
-	
-	
-	
 }
