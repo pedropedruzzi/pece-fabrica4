@@ -15,8 +15,6 @@ public class main {
 	aluno.setSenha("senhaTeste");
 	System.out.println(aluno.getCpf());
 	aluno.cadastraUsuario();
-		
-		
 	}
 }
 
