@@ -13,5 +13,4 @@ public class CursoDAO {
 		dbs.save(curso);
 		dbs.getTransaction().commit();
 	}
-	
 }
