@@ -220,12 +220,12 @@ public class Usuario {
 	private boolean ValidaUsuario()
 	{
 		boolean blnRetVal = true;
-		if (nome.length() == 0)
+		if (nome.trim().length() == 0)
 		{
 			_strUltimoErro = "O campo 'nome' deve ser preenchido";
 			blnRetVal = false;
 		}
-		if (email.length() == 0)
+		if (email.trim().length() == 0)
 		{
 			_strUltimoErro = "O campo 'email' deve ser preenchido";
 			blnRetVal = false;
