@@ -177,7 +177,7 @@ public class Usuario {
 	}
 	
 
-	//Metodos
+	// 	Metodos
 	// Busca todos os usuarios no banco, de acordo com o filtro.
 	public static List<Usuario> consultaUsuario(String strFiltro)
 	{
