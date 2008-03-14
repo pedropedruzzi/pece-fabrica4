@@ -14,6 +14,10 @@ import javax.persistence.OneToMany;
 import br.usp.poli.pece.db.CursoDAO;
 
 
+/**
+ * @author virgilio.vettorazzo
+ *
+ */
 @Entity
 public class Curso {
 	@Id @GeneratedValue
@@ -106,8 +110,13 @@ public class Curso {
 		this.descricao = descricao;
 	}
 	
-	public void cadstroCurso(Curso curso) {
-		CursoDAO.cadastroCurso(curso);
+	/**
+	   * Cadastro de Curso
+	   *
+	   * @param  objCurso	Objeto contendo informacoes do curso a ser cadastrado
+	   */	
+	public void cadstroCurso(Curso objCurso) {
+		CursoDAO.cadastroCurso(objCurso);
 	}
 	
 }

@@ -178,19 +178,16 @@ public class Usuario {
 	
 
 	// 	Metodos
-	// Busca todos os usuarios no banco, de acordo com o filtro.
 	public static List<Usuario> consultaUsuario(String strFiltro)
 	{
 		return UsuarioDAO.consultaUsuario(strFiltro);
 	}
-	
-	// Busca todos os usuarios no banco, de acordo com o filtro.
+
 	public static List<Aluno> consultaAluno(String strFiltro)
 	{
 		return UsuarioDAO.consultaAluno(strFiltro);
 	}
 	
-	//Cadastra usuario no banco e retorna um booleano de confirmacao.
 	public boolean cadastraUsuario()
 	{
 		boolean blnRetVal = true;
@@ -200,23 +197,22 @@ public class Usuario {
 			blnRetVal = false;
 		
 		return blnRetVal;
-		
 	}
 		
-	//Update no banco
-	public boolean atualizaUsuario(Usuario objUsuario)
+	public boolean atualizaUsuario()
 	{
 		boolean blnRetVal = true;
 		if (ValidaUsuario())
-			UsuarioDAO.atualizaUsuario(objUsuario);
+			UsuarioDAO.atualizaUsuario(this);
 		else
 			blnRetVal = false;
 		
 		return blnRetVal;
 	}
 	
-	// Verifica preenchimento das propriedades "nome" e "email" de um 
-	// usuario.
+	/**  Valida Usuario
+	 * @return 		boolean 		Usuario válido/não válido
+	 */
 	private boolean ValidaUsuario()
 	{
 		boolean blnRetVal = true;
@@ -233,6 +229,10 @@ public class Usuario {
 		return blnRetVal;
 	}
 	
+	/** Obtem ultimo erro
+	 * @return		string		Ultimo erro gerado pelos processos 
+	 * 
+	 */
 	public String ObtemUltimoErro()
 	{
 		return _strUltimoErro;

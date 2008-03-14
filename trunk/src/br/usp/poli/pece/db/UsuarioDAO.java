@@ -12,6 +12,11 @@ public class UsuarioDAO {
 	/*
 	 * Consulta usuarios passando parte do nome
 	 */
+	/** Consulta Usuario
+	 *  
+	 * @param 		strFiltro		Filtro da consulta
+	 * @return		List<Usuario>	Lista de usuarios correspondente a pesquisa
+	 */
 	public static List<Usuario> consultaUsuario(String strFiltro) {
 		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
 		dbs.beginTransaction();
@@ -24,8 +29,10 @@ public class UsuarioDAO {
 	    return result;
 	}
 
-	/*
-	 * Consulta alunos passando parte do nome
+	/** Consulta Alunos
+	 * @param 		strFiltro		Filtro da consulta
+	 * @return		List<Aluno>		Lista de alunos	correspondente a pesquisa
+	 * 
 	 */
 	public static List<Aluno> consultaAluno(String strFiltro) {
 		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
@@ -40,7 +47,10 @@ public class UsuarioDAO {
 	}
 
 	
-	//TODO: BD
+	/** Cadastra Usuário
+	 * @param		objUsuario		Usuario validado
+	 * @return		boolean			Verdadeiro (cadastro com sucesso)/Falso
+	 */
 	public static void cadastraUsuario(Usuario objUsuario) {
 		
 		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
@@ -51,7 +61,11 @@ public class UsuarioDAO {
 		
 	}
 	
-	//TODO: BD
+	/** Atualiza Usuario
+	 *  @param 		objUsuario	Usuario validado
+	 *  @return 		boolean		Confirmacao da atualizacao (verdadeiro/falso)
+	 *	TODO: criar funcao atualizaUsuario
+	 */
 	public static void atualizaUsuario(Usuario objUsuario)
 	{
 		
