@@ -1,5 +1,6 @@
 package br.usp.poli.pece.bl;
 
+// Classe para testes de unidade
 public class main {
 	
 	/**
