@@ -86,4 +86,8 @@ public class Matricula {
 	public void cadastrarMatricula(Matricula matricula) {
 		MatriculaDAO.cadastroMatricula(matricula);
 	}
+	
+	public void matricularAluno(Matricula matricula) {
+		
+	}
 }

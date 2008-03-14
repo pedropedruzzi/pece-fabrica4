@@ -71,4 +71,11 @@ public class Turma {
 	}
 	
 	
+	// varrer a tabela de matícula e verificar o numero de alunos em
+	// cada curso e criar as turmas
+	public void criartTurmas() {
+		
+	}
+	
+	
 }
