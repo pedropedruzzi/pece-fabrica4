@@ -35,22 +35,4 @@ public class Aluno extends Usuario {
 	public void setInscricoes(Set<Inscricao> inscricoes) {
 		this.inscricoes = inscricoes;
 	}
-	
-	public static void main(String[] args) {
-		
-		Aluno alunoTeste = new Aluno();
-		alunoTeste.setEmail("email");
-		alunoTeste.setNome("nome");
-		
-		
-		if (!alunoTeste.cadastraUsuario())
-		{
-			System.out.println(alunoTeste.ObtemUltimoErro());
-		}
-		else
-		{
-			System.out.println("Cadastro Realizado!");
-		}
-	}
-	
 }
