@@ -1,5 +1,5 @@
-<%@taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
-<%@taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
+<%--  @taglib prefix="f" url="http://java.sun.com/jsf/core" --%>
+<%--  @taglib prefix="h" url="http://java.sun.com/jsf/html" --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -13,7 +13,7 @@
     </head>
     <body>
         <h2>Preencha os dados abaixo</h2>
-        <form name="cadastramento" action="academico_cadastro_confirm.html" method="POST">
+        <form name="cadastramento" action="academico_cadastro_confirm.jsp" method="POST">
             <p>Tipo de cadastro: <select name="tipo" size="1">
                     <option selected> </option>
                     <option>Funcionário</option>
@@ -22,10 +22,9 @@
                     </select>
             <p>Nome: <input type="text" name="nome" value="" size="50"/></p>
             <p>Email: <input type="text" name="email" value="" size="50" /></p>
-            <p>Login: <input type="text" name="email" value="" size="20" /></p>
-            <p>Senha: <input type="password" name="email" value="" size="20" /></p>
-            <p>CPF: <input type="text" name="email" value="" size="20" /></p>
-            <p>Currículo:<input type="file" name="teste" value="" width="50" /></p>
+            <p>Login: <input type="text" name="login" value="" size="20" /></p>
+            <p>Senha: <input type="password" name="senha" value="" size="20" /></p>
+            <p>CPF: <input type="text" name="cpf" value="" size="20" /></p>
             <p align="center"><input type="submit" value="Enviar" name="enviar"/></p>
             
         </form>
