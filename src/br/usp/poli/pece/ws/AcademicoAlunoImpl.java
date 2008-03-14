@@ -14,7 +14,7 @@ public class AcademicoAlunoImpl implements AcademicoAluno {
 	public List<Aluno> consultaAluno(String strFiltro) {
 		System.out.println("chamou consultaAluno!");
 		
-		return UsuarioDAO.consultaAluno(strFiltro);
+		return  Aluno.consultaAluno(strFiltro);
 	}
 	
 	public static void main(String[] args) {

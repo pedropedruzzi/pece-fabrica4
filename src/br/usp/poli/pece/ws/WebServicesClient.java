@@ -15,7 +15,7 @@ public class WebServicesClient {
 		factory.getInInterceptors().add(new LoggingInInterceptor());
 		factory.getOutInterceptors().add(new LoggingOutInterceptor());
 		factory.setServiceClass(AcademicoAluno.class);
-		factory.setAddress("http://143.107.102.47:9000/AcademicoAluno");
+		factory.setAddress("http://localhost:9000/AcademicoAluno");
 		AcademicoAluno client = (AcademicoAluno) factory.create();
 
 		return client;
@@ -30,7 +30,7 @@ public class WebServicesClient {
 		AcademicoAluno aluno = WebServicesClient.getAlunosWS();
 				
 		List<Aluno> l = aluno.consultaAluno("");
-		System.out.println("Retornou!");
+		System.out.println("Daqui!");
 		
 		System.out.println("Tamanho: " + l.size());
 		
