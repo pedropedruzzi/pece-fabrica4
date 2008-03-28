@@ -6,6 +6,10 @@
  
 package fabrica4;
 
+import com.sun.data.provider.DataAdapter;
+import com.sun.data.provider.DataProvider;
+import com.sun.data.provider.FieldKey;
+import com.sun.data.provider.impl.ListDataProvider;
 import com.sun.rave.web.ui.appbase.AbstractApplicationBean;
 import javax.faces.FacesException;
 
@@ -30,6 +34,16 @@ public class ApplicationBean1 extends AbstractApplicationBean {
      * here is subject to being replaced.</p>
      */
     private void _init() throws Exception {
+        listDataProvider1.setList(null);
+    }
+    private ListDataProvider listDataProvider1 = new ListDataProvider();
+
+    public ListDataProvider getListDataProvider1() {
+        return listDataProvider1;
+    }
+
+    public void setListDataProvider1(ListDataProvider ldp) {
+        this.listDataProvider1 = ldp;
     }
     // </editor-fold>
 
@@ -100,5 +114,8 @@ public class ApplicationBean1 extends AbstractApplicationBean {
     @Override
     public String getLocaleCharacterEncoding() {
         return super.getLocaleCharacterEncoding();
+    }
+
+    public void listDataProvider1_valueChanged(DataProvider dp, FieldKey fk, Object o2, Object o3) {
     }
 }
