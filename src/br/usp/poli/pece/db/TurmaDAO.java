@@ -13,6 +13,12 @@ public class TurmaDAO {
 		dbs.save(turma);
 		dbs.getTransaction().commit();
 	}
+
+	public static Integer getSeqNumber() {
+		// TODO Auto-generated method stub
+		// fornecer o seq number para a turma nova que acabou de ser criada
+		return null;
+	}
 	
 	
 }

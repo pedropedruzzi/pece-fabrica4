@@ -13,5 +13,12 @@ public class MatriculaDAO {
 		dbs.save(matricula);
 		dbs.getTransaction().commit();
 	}
+
+	
+	public static int getSeqNumber() {
+		// TODO Auto-generated method stub
+		// retronar um seq number para identificar a matricula
+		return 0;
+	}
 	
 }
