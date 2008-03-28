@@ -34,16 +34,6 @@ public class ApplicationBean1 extends AbstractApplicationBean {
      * here is subject to being replaced.</p>
      */
     private void _init() throws Exception {
-        listDataProvider1.setList(null);
-    }
-    private ListDataProvider listDataProvider1 = new ListDataProvider();
-
-    public ListDataProvider getListDataProvider1() {
-        return listDataProvider1;
-    }
-
-    public void setListDataProvider1(ListDataProvider ldp) {
-        this.listDataProvider1 = ldp;
     }
     // </editor-fold>
 
