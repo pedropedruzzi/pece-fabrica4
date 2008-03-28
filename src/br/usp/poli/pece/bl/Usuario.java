@@ -52,8 +52,8 @@ public class Usuario {
 	private long telefone;
 	private long celular;
 	
-	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
-	private List<FormacaoAcademica> formacao;
+	//@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
+	//private List<FormacaoAcademica> formacao;
 	
 	private String cursosComplementares;
 	private String historicoProfissional;
@@ -203,7 +203,7 @@ public class Usuario {
 	{
 		boolean blnRetVal = true;
 		if (ValidaUsuario())
-			UsuarioDAO.atualizaUsuario(this);
+			UsuarioDAO.updateUsuario(this);
 		else
 			blnRetVal = false;
 		
