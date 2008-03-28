@@ -3,12 +3,15 @@ package br.usp.poli.pece.bl;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 import br.usp.poli.pece.db.UsuarioDAO;
@@ -48,7 +51,10 @@ public class Usuario {
 	private String uf;
 	private long telefone;
 	private long celular;
-	private String formacaoAcademica;
+	
+	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
+	private List<FormacaoAcademica> formacao;
+	
 	private String cursosComplementares;
 	private String historicoProfissional;
 	@Transient
@@ -156,12 +162,6 @@ public class Usuario {
 	}
 	public void setCelular(long celular) {
 		this.celular = celular;
-	}
-	public String getFormacaoAcademica() {
-		return formacaoAcademica;
-	}
-	public void setFormacaoAcademica(String formacaoAcademica) {
-		this.formacaoAcademica = formacaoAcademica;
 	}
 	public String getCursosComplementares() {
 		return cursosComplementares;
