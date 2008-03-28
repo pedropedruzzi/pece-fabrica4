@@ -84,6 +84,7 @@ public class Matricula {
 
 	
 	public void cadastrarMatricula(Matricula matricula) {
+		this.setNumero(MatriculaDAO.getSeqNumber());
 		MatriculaDAO.cadastroMatricula(matricula);
 	}
 	
