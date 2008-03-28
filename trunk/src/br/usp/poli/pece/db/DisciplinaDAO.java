@@ -15,4 +15,16 @@ public class DisciplinaDAO {
 		dbs.getTransaction().commit();
 	}
 
+	public static Disciplina getDisciplinaByCodigo(String codigo) {
+		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
+		dbs.beginTransaction();
+		
+		Disciplina d = (Disciplina) dbs.createQuery("from Disciplina as d where d.codDisciplina=?")
+	    	.setString(0, codigo).uniqueResult();
+		
+		dbs.getTransaction().commit();
+		
+		return d;
+	}
+
 }
