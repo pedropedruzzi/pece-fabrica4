@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import br.usp.poli.pece.db.TurmaDAO;
+
 @Entity
 @Table(uniqueConstraints={@UniqueConstraint(columnNames={"codigo", "disciplina_id"})})
 public class Turma {
@@ -21,7 +23,7 @@ public class Turma {
 	protected long id;
 	
 	@Column(nullable=false)
-	private String codigo;
+	private Integer codigo;
 	
 	private Date dataRegistro;
 	
@@ -32,11 +34,11 @@ public class Turma {
 	@OneToMany(mappedBy="turma")
 	private Set<Inscricao> inscricoes;
 
-	public String getCodigo() {
+	public Integer getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(String codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
 
@@ -73,8 +75,9 @@ public class Turma {
 	
 	// varrer a tabela de matícula e verificar o numero de alunos em
 	// cada curso e criar as turmas
-	public void criartTurmas() {
-		
+	public void criarTurmas() {
+		this.setCodigo(TurmaDAO.getSeqNumber());
+		TurmaDAO.cadastroTurma(Turma turma);
 	}
 	
 	
