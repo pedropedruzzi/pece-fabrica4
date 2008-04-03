@@ -48,12 +48,7 @@ public class academico_teste extends AbstractPageBean {
      * here is subject to being replaced.</p>
      */
     private void _init() throws Exception {
-        usuarioDataProvider.setCachedRowSet((javax.sql.rowset.CachedRowSet) getValue("#{SessionBean1.usuarioRowSet}"));
         usuarioDataProvider.setCachedRowSet((javax.sql.rowset.CachedRowSet) getValue("#{modules$academico_teste.usuarioRowSet}"));
-        usuarioRowSet.setDataSourceName("java:comp/env/jdbc/public_PostgreSQL");
-        usuarioRowSet.setCommand("SELECT * FROM public.usuario");
-        usuarioRowSet.setTableName("usuario");
-        dataTable1Model.setCachedRowSet((javax.sql.rowset.CachedRowSet) getValue("#{modules$academico_teste.usuarioRowSet}"));
     }
 
     private Page page1 = new Page();
@@ -124,59 +119,41 @@ public class academico_teste extends AbstractPageBean {
     public void setDataTable1(HtmlDataTable hdt) {
         this.dataTable1 = hdt;
     }
-    private CachedRowSetDataProvider usuarioDataProvider = new CachedRowSetDataProvider();
+    private DefaultTableDataModel dataTable1Model = new DefaultTableDataModel();
 
-    public CachedRowSetDataProvider getUsuarioDataProvider() {
-        return usuarioDataProvider;
-    }
-
-    public void setUsuarioDataProvider(CachedRowSetDataProvider crsdp) {
-        this.usuarioDataProvider = crsdp;
-    }
-    private CachedRowSetXImpl usuarioRowSet = new CachedRowSetXImpl();
-
-    public CachedRowSetXImpl getUsuarioRowSet() {
-        return usuarioRowSet;
-    }
-
-    public void setUsuarioRowSet(CachedRowSetXImpl crsxi) {
-        this.usuarioRowSet = crsxi;
-    }
-    private UIColumn column16 = new UIColumn();
-
-    public UIColumn getColumn16() {
-        return column16;
-    }
-
-    public void setColumn16(UIColumn uic) {
-        this.column16 = uic;
-    }
-    private HtmlOutputText outputText31 = new HtmlOutputText();
-
-    public HtmlOutputText getOutputText31() {
-        return outputText31;
-    }
-
-    public void setOutputText31(HtmlOutputText hot) {
-        this.outputText31 = hot;
-    }
-    private HtmlOutputText outputText32 = new HtmlOutputText();
-
-    public HtmlOutputText getOutputText32() {
-        return outputText32;
-    }
-
-    public void setOutputText32(HtmlOutputText hot) {
-        this.outputText32 = hot;
-    }
-    private CachedRowSetDataModel dataTable1Model = new CachedRowSetDataModel();
-
-    public CachedRowSetDataModel getDataTable1Model() {
+    public DefaultTableDataModel getDataTable1Model() {
         return dataTable1Model;
     }
 
-    public void setDataTable1Model(CachedRowSetDataModel crsdm) {
-        this.dataTable1Model = crsdm;
+    public void setDataTable1Model(DefaultTableDataModel dtdm) {
+        this.dataTable1Model = dtdm;
+    }
+    private UIColumn coluna1 = new UIColumn();
+
+    public UIColumn getColuna1() {
+        return coluna1;
+    }
+
+    public void setColuna1(UIColumn uic) {
+        this.coluna1 = uic;
+    }
+    private HtmlOutputText outputText7 = new HtmlOutputText();
+
+    public HtmlOutputText getOutputText7() {
+        return outputText7;
+    }
+
+    public void setOutputText7(HtmlOutputText hot) {
+        this.outputText7 = hot;
+    }
+    private HtmlOutputText outputText8 = new HtmlOutputText();
+
+    public HtmlOutputText getOutputText8() {
+        return outputText8;
+    }
+
+    public void setOutputText8(HtmlOutputText hot) {
+        this.outputText8 = hot;
     }
 
     // </editor-fold>
@@ -256,7 +233,6 @@ public class academico_teste extends AbstractPageBean {
      */
     @Override
     public void destroy() {
-        usuarioDataProvider.close();
     }
 
     /**

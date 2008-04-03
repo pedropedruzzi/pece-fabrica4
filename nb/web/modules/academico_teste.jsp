@@ -15,12 +15,12 @@
                 <webuijsf:body binding="#{modules$academico_teste.body1}" id="body1" style="-rave-layout: grid">
                     <webuijsf:form binding="#{modules$academico_teste.form1}" id="form1">
                         <h:dataTable binding="#{modules$academico_teste.dataTable1}" headerClass="list-header" id="dataTable1"
-                            rowClasses="list-row-even,list-row-odd" style="height: 207px; left: 24px; top: 24px; position: absolute"
-                            value="#{modules$academico_teste.dataTable1Model}" var="currentRow" width="1490">
-                            <h:column binding="#{modules$academico_teste.column16}" id="column16">
-                                <h:outputText binding="#{modules$academico_teste.outputText31}" id="outputText31" value="#{currentRow['nome']}"/>
+                            rowClasses="list-row-even,list-row-odd" style="left: 24px; top: 72px; position: absolute"
+                            value="#{modules$academico_teste.dataTable1Model}" var="currentRow">
+                            <h:column binding="#{modules$academico_teste.coluna1}" id="coluna1">
+                                <h:outputText binding="#{modules$academico_teste.outputText7}" id="outputText7"/>
                                 <f:facet name="header">
-                                    <h:outputText binding="#{modules$academico_teste.outputText32}" id="outputText32" value="nome"/>
+                                    <h:outputText binding="#{modules$academico_teste.outputText8}" id="outputText8" value="coluna1"/>
                                 </f:facet>
                             </h:column>
                         </h:dataTable>

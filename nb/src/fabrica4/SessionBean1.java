@@ -6,9 +6,11 @@
  
 package fabrica4;
 
+import com.sun.data.provider.impl.ObjectListDataProvider;
 import com.sun.rave.web.ui.appbase.AbstractSessionBean;
 import com.sun.sql.rowset.CachedRowSetXImpl;
 import javax.faces.FacesException;
+import br.usp.poli.pece.bl.Usuario;
 
 /**
  * <p>Session scope data bean for your application.  Create properties
@@ -31,6 +33,16 @@ public class SessionBean1 extends AbstractSessionBean {
      * here is subject to being replaced.</p>
      */
     private void _init() throws Exception {
+        objectListDataProvider1.setList(null);
+    }
+    private ObjectListDataProvider objectListDataProvider1 = new ObjectListDataProvider();
+
+    public ObjectListDataProvider getObjectListDataProvider1() {
+        return objectListDataProvider1;
+    }
+
+    public void setObjectListDataProvider1(ObjectListDataProvider oldp) {
+        this.objectListDataProvider1 = oldp;
     }
     // </editor-fold>
 
@@ -38,6 +50,7 @@ public class SessionBean1 extends AbstractSessionBean {
      * <p>Construct a new session data bean instance.</p>
      */
     public SessionBean1() {
+        set Teste as List = new Usuario().consultaUsuario(strFiltro);
     }
 
     /**
