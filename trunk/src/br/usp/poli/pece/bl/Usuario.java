@@ -19,7 +19,7 @@ import br.usp.poli.pece.db.UsuarioDAO;
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Usuario {
-	
+
 	@Id @GeneratedValue
 	private long id;
 	
@@ -54,30 +54,26 @@ public class Usuario {
 	private String uf;
 	private long telefone;
 	private long celular;
-	// formação academica
-	private String formacaoAcademica;
 	
-	//@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
-	//private List<FormacaoAcademica> formacao;
-	
-	private String formacaoAcademica1;
-	private String formacaoAcademica2;
-	// cursos complementares
-	private String cursosComplementares;
-	// historico profissional
-	private String empresaHistProf;
-	private String ramoHistProf;
-	private String cargoHistProf;
-	private String enderecoHistProf;
-	
-	
-	
-	
-	private String historicoProfissional;
+	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
+	private List<FormacaoAcademica> formacao;
+	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
+	private List<CursosComplementares> cursosComplementares;
+	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
+	private List<HistoricoProfissional> historicoProfissional;
+	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
+	private List<Qualificacao> qualificacao;
+	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
+	private List<Motivacao> motivacao;
+	private PesquisaPECE pesquisaPece;
+				
 	@Transient
 	private String _strUltimoErro;
 	
-		
+	// construtor
+	
+	
+	
 	public long getId() {
 		return id;
 	}
@@ -200,39 +196,7 @@ public class Usuario {
 	public void setComplementoEndereco(String complementoEndereco) {
 		this.complementoEndereco = complementoEndereco;
 	}
-	public String getFormacaoAcademica() {
-		return formacaoAcademica;
-	}
-	public void setFormacaoAcademica(String formacaoAcademica) {
-		this.formacaoAcademica = formacaoAcademica;
-	}
-
-	public String getFormacaoAcademica1() {
-		return formacaoAcademica1;
-	}
-	public void setFormacaoAcademica1(String formacaoAcademica1) {
-		this.formacaoAcademica1 = formacaoAcademica1;
-	}
-	public String getFormacaoAcademica2() {
-		return formacaoAcademica2;
-	}
-	public void setFormacaoAcademica2(String formacaoAcademica2) {
-		this.formacaoAcademica2 = formacaoAcademica2;
-	}
-	public String getCursosComplementares() {
-		return cursosComplementares;
-	}
-	public void setCursosComplementares(String cursosComplementares) {
-		this.cursosComplementares = cursosComplementares;
-	}
-	public String getHistoricoProfissional() {
-		return historicoProfissional;
-	}
-	public void setHistoricoProfissional(String historicoProfissional) {
-		this.historicoProfissional = historicoProfissional;
-	}
 	
-
 	// 	Metodos
 	public static List<Usuario> consultaUsuario(String strFiltro)
 	{
@@ -293,4 +257,5 @@ public class Usuario {
 	{
 		return _strUltimoErro;
 	}
+		
 }
