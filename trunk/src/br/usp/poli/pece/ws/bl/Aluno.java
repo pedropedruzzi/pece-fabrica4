@@ -8,7 +8,7 @@ public class Aluno extends Usuario {
 	//private Set<Inscricao> inscricoes;
 
 	public Aluno(br.usp.poli.pece.bl.Aluno a) {
-		// TODO Criar um ws.luno a partir de bl.Aluno
+		// TODO Criar um ws.aluno a partir de bl.Aluno
 	}
 
 	public char[] getNome() {

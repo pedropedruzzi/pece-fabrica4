@@ -78,28 +78,4 @@ public class DataBaseUtil {
 		dbs.getTransaction().commit();
 		
 	}
-	
-	@SuppressWarnings("unused")
-	private static void criaPedro2() {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		
-		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
-		dbs.beginTransaction();
-		
-		Aluno pedro = new Aluno();
-		try {
-			pedro.setDataNascimento(sdf.parse("27/04/1986"));
-		} catch (ParseException e) {}
-		pedro.setNome("Pedro Rodrigues Nacione Pedruzzi");
-		pedro.setEmail("pedro.pedruzzi@gmail.com");
-		pedro.setLogin("pedro.pedruzzi");
-		pedro.setSenha("1234");
-		pedro.setEnderecoRes("Alameda Rouxinol, 180 - Jardim do Sol - Santo Andre - SP");
-		pedro.setTelefone(1144210284);
-		
-		dbs.save(pedro);
-		dbs.getTransaction().commit();
-		
-	}
-
 }

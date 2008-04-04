@@ -45,17 +45,34 @@ public class Usuario {
 	private String localNascimento;
 	private Date dataNascimento;
 	private String nomeMae;
-	private String enderecoRes;
+	private String ruaEndereco;
+	private String numeroEndereco;
+	private String bairroEndereco;
+	private String complementoEndereco;
 	private String cep;
 	private String cidade;
 	private String uf;
 	private long telefone;
 	private long celular;
+	// formação academica
+	private String formacaoAcademica;
 	
 	//@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
 	//private List<FormacaoAcademica> formacao;
 	
+	private String formacaoAcademica1;
+	private String formacaoAcademica2;
+	// cursos complementares
 	private String cursosComplementares;
+	// historico profissional
+	private String empresaHistProf;
+	private String ramoHistProf;
+	private String cargoHistProf;
+	private String enderecoHistProf;
+	
+	
+	
+	
 	private String historicoProfissional;
 	@Transient
 	private String _strUltimoErro;
@@ -127,12 +144,7 @@ public class Usuario {
 	public void setNomeMae(String nomeMae) {
 		this.nomeMae = nomeMae;
 	}
-	public String getEnderecoRes() {
-		return enderecoRes;
-	}
-	public void setEnderecoRes(String enderecoRes) {
-		this.enderecoRes = enderecoRes;
-	}
+	
 	public String getCep() {
 		return cep;
 	}
@@ -162,6 +174,50 @@ public class Usuario {
 	}
 	public void setCelular(long celular) {
 		this.celular = celular;
+	}	
+	public String getRuaEndereco() {
+		return ruaEndereco;
+	}
+
+	public void setRuaEndereco(String ruaEndereco) {
+		this.ruaEndereco = ruaEndereco;
+	}
+	public String getNumeroEndereco() {
+		return numeroEndereco;
+	}
+	public void setNumeroEndereco(String numeroEndereco) {
+		this.numeroEndereco = numeroEndereco;
+	}
+	public String getBairroEndereco() {
+		return bairroEndereco;
+	}
+	public void setBairroEndereco(String bairroEndereco) {
+		this.bairroEndereco = bairroEndereco;
+	}
+	public String getComplementoEndereco() {
+		return complementoEndereco;
+	}
+	public void setComplementoEndereco(String complementoEndereco) {
+		this.complementoEndereco = complementoEndereco;
+	}
+	public String getFormacaoAcademica() {
+		return formacaoAcademica;
+	}
+	public void setFormacaoAcademica(String formacaoAcademica) {
+		this.formacaoAcademica = formacaoAcademica;
+	}
+
+	public String getFormacaoAcademica1() {
+		return formacaoAcademica1;
+	}
+	public void setFormacaoAcademica1(String formacaoAcademica1) {
+		this.formacaoAcademica1 = formacaoAcademica1;
+	}
+	public String getFormacaoAcademica2() {
+		return formacaoAcademica2;
+	}
+	public void setFormacaoAcademica2(String formacaoAcademica2) {
+		this.formacaoAcademica2 = formacaoAcademica2;
 	}
 	public String getCursosComplementares() {
 		return cursosComplementares;
