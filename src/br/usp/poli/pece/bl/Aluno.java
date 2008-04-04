@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 import br.usp.poli.pece.bl.estruturas.CursosComplementares;
 import br.usp.poli.pece.bl.estruturas.FormacaoAcademica;
@@ -17,26 +18,32 @@ import br.usp.poli.pece.bl.estruturas.PesquisaPECE;
 @Entity
 public class Aluno extends Usuario {
 	
-	@OneToMany(mappedBy="aluno")
+	//@OneToMany(mappedBy="aluno")
+	@Transient
 	private Set<Matricula> matriculas;
 	
-	@OneToMany(mappedBy="aluno")
+	//@OneToMany(mappedBy="aluno")
+	@Transient
 	private Set<Inscricao> inscricoes;
 	
-	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
+	//@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
+	@Transient
 	private List<FormacaoAcademica> formacao;
 	
-	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
+	//@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
+	@Transient
 	private List<CursosComplementares> cursosComplementares;
 	
-	@OneToOne
+	//@OneToOne
+	@Transient
 	private HistoricoProfissional historicoProfissional;
 	
 	private String qualificacao;
 	
 	private String motivacao;
 	
-	@OneToOne
+	//@OneToOne
+	@Transient
 	private PesquisaPECE pesquisaPece;
 	
 	
