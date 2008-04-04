@@ -11,7 +11,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.Session;
+
 import br.usp.poli.pece.db.CursoDAO;
+import br.usp.poli.pece.db.DataBaseUtil;
 
 
 /**
@@ -115,8 +118,12 @@ public class Curso {
 	   *
 	   * @param  objCurso	Objeto contendo informacoes do curso a ser cadastrado
 	   */	
-	public void cadstroCurso(Curso objCurso) {
+	public static void cadstroCurso(Curso objCurso) {
 		CursoDAO.cadastroCurso(objCurso);
+	}
+	
+	public static Curso getCursoByCodigo(String codigo) {
+		return CursoDAO.getCursoByCodigo(codigo);
 	}
 	
 }
