@@ -32,10 +32,10 @@ public class DataBaseUtil {
 			cfg.addAnnotatedClass(Professor.class);
 			cfg.addAnnotatedClass(Turma.class);
 			cfg.addAnnotatedClass(Usuario.class);
-			cfg.addAnnotatedClass(CursosComplementares.class);
-			cfg.addAnnotatedClass(FormacaoAcademica.class);
-			cfg.addAnnotatedClass(HistoricoProfissional.class);
-			cfg.addAnnotatedClass(PesquisaPECE.class);
+			//cfg.addAnnotatedClass(CursosComplementares.class);
+			//cfg.addAnnotatedClass(FormacaoAcademica.class);
+			//cfg.addAnnotatedClass(HistoricoProfissional.class);
+			//cfg.addAnnotatedClass(PesquisaPECE.class);
 			
 			
 			sessionFactory = cfg.buildSessionFactory();
