@@ -33,7 +33,6 @@ public class Matricula {
 	
 	private Status status;
 
-
 	protected long getId() {
 		return id;
 	}
@@ -82,7 +81,6 @@ public class Matricula {
 		this.status = status;
 	}
 
-	
 	public void cadastrarMatricula(Matricula matricula) {
 		this.setNumero(MatriculaDAO.getSeqNumber());
 		MatriculaDAO.cadastroMatricula(matricula);
