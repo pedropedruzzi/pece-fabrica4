@@ -9,4 +9,5 @@ import br.usp.poli.pece.ws.bl.Aluno;
 public interface AcademicoAluno {
 	
 	public List<Aluno> consultaAluno(String strFiltro);
+	public List<Aluno> listaTodosAlunos();
 }

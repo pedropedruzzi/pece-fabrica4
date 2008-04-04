@@ -1,7 +1,5 @@
 package br.usp.poli.pece.bl.estruturas;
 
-import java.util.Date;
-
 public class PesquisaPECE {
 	
 	// conhecimento do curso?

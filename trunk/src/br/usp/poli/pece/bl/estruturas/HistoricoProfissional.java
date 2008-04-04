@@ -1,28 +1,29 @@
 package br.usp.poli.pece.bl.estruturas;
 
-import java.util.Date;
+import javax.persistence.Entity;
 
+@Entity
 public class HistoricoProfissional {
 	
-	// instituicao/empresa onde trabalha 
-	private String empresaAtual;
-	// ramo de atividade
-	private String ramoAtividade;
-	// cargo
-	private String cargo;
-	// endereco comercial
-	private String endComercial;
+	private String empresaAtual; // instituicao/empresa onde trabalha
+	
+	private String ramoAtividade; // ramo de atividade
+	
+	private String cargo; // cargo
+	
+	private String endComercial; // endereco comercial
+	
 	private String endComplemento;
 	private String endBairro;
 	private String endCEP;
 	private String endCidade;
 	private String endUF;
-	// telefone + ramal
-	private String telefone;
-	// email empresa
-	private String email;
-	// atividades profissionais anteriores
-	private String atividadesAnteriores;
+	
+	private String telefone; // telefone + ramal
+	
+	private String email; // email empresa
+	
+	private String atividadesAnteriores; // atividades profissionais anteriores
 		
 	public String getEmpresaAtual() {
 		return empresaAtual;

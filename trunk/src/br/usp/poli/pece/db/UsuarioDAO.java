@@ -68,6 +68,23 @@ public class UsuarioDAO {
 	    return result;
 	}
 
+	/**
+	 * Lista todos os alunos
+	 * 
+	 * @return		List<Aluno>		Lista de todos os alunos cadastrados
+	 */
+	@SuppressWarnings("unchecked")
+	public static List<Aluno> listaTodosAlunos() {
+		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
+		dbs.beginTransaction();
+		
+	    List<Aluno> result = (List<Aluno>)dbs.createQuery("from Aluno").list();
+	    
+	    dbs.getTransaction().commit();
+	    
+	    return result;
+	}
+
 	
 	/** Cadastra Usuário
 	 * @param		objUsuario		Usuario validado
