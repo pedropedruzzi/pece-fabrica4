@@ -31,7 +31,7 @@ public class Matricula {
 	
 	private Date data;
 	
-	private String status;
+	private Status status;
 
 
 	protected long getId() {
@@ -74,11 +74,11 @@ public class Matricula {
 		this.data = data;
 	}
 
-	public String getStatus() {
+	public Status getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 
@@ -91,4 +91,6 @@ public class Matricula {
 	public void matricularAluno(Matricula matricula) {
 		
 	}
+	
+	public static enum Status { PAGAMENTO_PENDENTE, PAGO, AGENDAR_ENTREVISTA, MATRICULADO, RECUSADO }
 }
