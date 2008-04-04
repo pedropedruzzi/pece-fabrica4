@@ -12,11 +12,6 @@
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     <managed-bean>
-        <managed-bean-name>Page1</managed-bean-name>
-        <managed-bean-class>fabrica4.Page1</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
-    <managed-bean>
         <managed-bean-name>ApplicationBean1</managed-bean-name>
         <managed-bean-class>fabrica4.ApplicationBean1</managed-bean-class>
         <managed-bean-scope>application</managed-bean-scope>

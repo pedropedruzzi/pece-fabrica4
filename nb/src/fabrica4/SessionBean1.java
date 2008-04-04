@@ -50,7 +50,7 @@ public class SessionBean1 extends AbstractSessionBean {
      * <p>Construct a new session data bean instance.</p>
      */
     public SessionBean1() {
-        set Teste as List = new Usuario().consultaUsuario(strFiltro);
+    
     }
 
     /**
