@@ -14,6 +14,12 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
+import br.usp.poli.pece.bl.estruturas.CursosComplementares;
+import br.usp.poli.pece.bl.estruturas.FormacaoAcademica;
+import br.usp.poli.pece.bl.estruturas.HistoricoProfissional;
+import br.usp.poli.pece.bl.estruturas.Motivacao;
+import br.usp.poli.pece.bl.estruturas.PesquisaPECE;
+import br.usp.poli.pece.bl.estruturas.Qualificacao;
 import br.usp.poli.pece.db.UsuarioDAO;
 
 @Entity
