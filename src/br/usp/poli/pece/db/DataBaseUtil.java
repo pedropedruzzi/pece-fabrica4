@@ -1,14 +1,16 @@
 package br.usp.poli.pece.db;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
 import br.usp.poli.pece.bl.*;
+import br.usp.poli.pece.bl.estruturas.CursosComplementares;
+import br.usp.poli.pece.bl.estruturas.FormacaoAcademica;
+import br.usp.poli.pece.bl.estruturas.HistoricoProfissional;
+import br.usp.poli.pece.bl.estruturas.PesquisaPECE;
 
 public class DataBaseUtil {
 
@@ -27,10 +29,13 @@ public class DataBaseUtil {
 			cfg.addAnnotatedClass(Funcionario.class);
 			cfg.addAnnotatedClass(Inscricao.class);
 			cfg.addAnnotatedClass(Matricula.class);
-			cfg.addAnnotatedClass(Pessoa.class);
 			cfg.addAnnotatedClass(Professor.class);
 			cfg.addAnnotatedClass(Turma.class);
 			cfg.addAnnotatedClass(Usuario.class);
+			cfg.addAnnotatedClass(CursosComplementares.class);
+			cfg.addAnnotatedClass(FormacaoAcademica.class);
+			cfg.addAnnotatedClass(HistoricoProfissional.class);
+			cfg.addAnnotatedClass(PesquisaPECE.class);
 			
 			
 			sessionFactory = cfg.buildSessionFactory();
@@ -57,25 +62,5 @@ public class DataBaseUtil {
 		SchemaExport schema = new SchemaExport(cfg);
 		schema.setOutputFile("sql/create.sql");
 		schema.create(false, criaMesmo);
-	}
-	
-	@SuppressWarnings("unused")
-	private static void criaPedro() {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		
-		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
-		dbs.beginTransaction();
-		
-		Pessoa p = new Pessoa();
-		try {
-			p.setNascimento(sdf.parse("27/04/1986"));
-		} catch (ParseException e) {}
-		p.setNome("Pedro Rodrigues Nacione Pedruzzi");
-		p.setEndereco("Alameda Rouxinol, 180 - Jardim do Sol - Santo Andre - SP");
-		p.setTelefone(1144210284);
-		
-		dbs.save(p);
-		dbs.getTransaction().commit();
-		
 	}
 }

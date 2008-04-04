@@ -1,18 +1,34 @@
 package br.usp.poli.pece.ws.bl;
 
-import java.util.Set;
+import java.util.Date;
 
-public class Aluno extends Usuario {
+import br.usp.poli.pece.bl.estruturas.HistoricoProfissional;
+
+public class Aluno {
 	
-	//private Set<Matricula> matriculas;
-	//private Set<Inscricao> inscricoes;
+	public long cpf;
+	public String nome;
+	public char sexo;
+	public Date dataNascimento;
+	public String empresaAtual;
+	public String ramoAtividade;
+	public String cargo;
 
+	public Aluno() {
+		
+	}
+	
 	public Aluno(br.usp.poli.pece.bl.Aluno a) {
 		// TODO Criar um ws.aluno a partir de bl.Aluno
-	}
-
-	public char[] getNome() {
-		// TODO Auto-generated method stub
-		return null;
+		cpf = a.getCpf();
+		nome = a.getNome();
+		sexo = a.getSexo();
+		dataNascimento = a.getDataNascimento();
+		
+		HistoricoProfissional hp = a.getHistoricoProfissional();
+		
+		empresaAtual = hp.getEmpresaAtual();
+		ramoAtividade = hp.getRamoAtividade();
+		cargo = hp.getCargo();
 	}
 }

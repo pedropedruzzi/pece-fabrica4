@@ -3,23 +3,14 @@ package br.usp.poli.pece.bl;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
-import br.usp.poli.pece.bl.estruturas.CursosComplementares;
-import br.usp.poli.pece.bl.estruturas.FormacaoAcademica;
-import br.usp.poli.pece.bl.estruturas.HistoricoProfissional;
-import br.usp.poli.pece.bl.estruturas.Motivacao;
-import br.usp.poli.pece.bl.estruturas.PesquisaPECE;
-import br.usp.poli.pece.bl.estruturas.Qualificacao;
 import br.usp.poli.pece.db.UsuarioDAO;
 
 @Entity
@@ -30,10 +21,10 @@ public class Usuario {
 	private long id;
 	
 	@Column(nullable=false)
-	private String nome = "";
+	private String nome;
 	
 	@Column(unique=true, nullable=false)
-	private String email = "";
+	private String email;
 	
 	@Column(unique=true, nullable=false, updatable=false)
 	private String login;
@@ -47,6 +38,7 @@ public class Usuario {
 	@Column(unique=true)
 	private Long cpf;
 	
+	private char sexo;
 	private Date dataExpRg;
 	private String localNascimento;
 	private Date dataNascimento;
@@ -60,18 +52,6 @@ public class Usuario {
 	private String uf;
 	private long telefone;
 	private long celular;
-	
-	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
-	private List<FormacaoAcademica> formacao;
-	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
-	private List<CursosComplementares> cursosComplementares;
-	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
-	private List<HistoricoProfissional> historicoProfissional;
-	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
-	private List<Qualificacao> qualificacao;
-	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
-	private List<Motivacao> motivacao;
-	private PesquisaPECE pesquisaPece;
 				
 	@Transient
 	private String _strUltimoErro;
@@ -121,6 +101,12 @@ public class Usuario {
 	}
 	public void setCpf(Long cpf) {
 		this.cpf = cpf;
+	}
+	public char getSexo() {
+		return sexo;
+	}
+	public void setSexo(char sexo) {
+		this.sexo = sexo;
 	}
 	public Date getDataExpRg() {
 		return dataExpRg;

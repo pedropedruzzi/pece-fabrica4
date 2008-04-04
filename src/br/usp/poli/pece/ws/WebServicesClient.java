@@ -24,9 +24,6 @@ public class WebServicesClient {
 	
 	//Teste para funcoes de aluno
 	public static void main(String[] args) {
-		/*
-		 * TODO
-		 */
 		AcademicoAluno aluno = WebServicesClient.getAlunosWS();
 				
 		List<Aluno> l = aluno.consultaAluno("");
@@ -40,6 +37,6 @@ public class WebServicesClient {
 		System.out.println("Tamanho: " + l.size());
 		
 		for (Aluno a : l)
-			System.out.println(a.getNome());
+			System.out.println(a.nome);
 	}
 }
