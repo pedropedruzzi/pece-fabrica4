@@ -11,9 +11,9 @@
         <h2>Preencha os dados abaixo</h2>
 	    <form name="cadastramento" action="academico_cadastro_confirm.jsp" method="POST">
 	        <p>Tipo de cadastro: <select name="tipo" size="1">
-	            <option>Funcionário</option>
-	            <option>Professor</option>
-	            <option selected>Aluno</option>
+	            <option value="Funcionario">Funcionário</option>
+	            <option value="Professor">Professor</option>
+	            <option value="Aluno" selected>Aluno</option>
 	        </select>
 	        <p class="academico">Nome: <input type="text" name="nome" value="" size="50"/></p>
 	        <p>Email: <input type="text" name="email" value="" size="50" /></p>
