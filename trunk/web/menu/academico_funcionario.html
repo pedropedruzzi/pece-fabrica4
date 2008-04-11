@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<title>Menu funcionário</title>
+
+	<link rel="StyleSheet" href="dtree.css" type="text/css" />
+	<script type="text/javascript" src="dtree.js"></script>
+
+</head>
+
+<body>
+
+<div class="dtree">
+
+	<p><a href="javascript: d.openAll();">expandir</a> | <a href="javascript: d.closeAll();">fechar abas</a></p>
+
+	<script type="text/javascript">
+		<!--
+
+		d = new dTree('d');
+
+		d.add(0,-1,'Menu funcionário');
+		d.add(1,0,'Cadastro','example01.html');
+		d.add(2,0,'Lista alunos','example01.html');
+		d.add(3,0,'Gerenciar cursos','example01.html');
+		d.add(4,3,'Inserir curso','example01.html');
+		d.add(5,3,'Alterar curso','example01.html');
+		d.add(6,3,'Buscar curso','example01.html');
+		d.add(7,0,'Gerenciar matérias','example01.html');
+		d.add(8,7,'Inserir matéria','example01.html');
+		d.add(9,7,'Alterar matéria','example01.html');
+		d.add(10,7,'Buscar matéria','example01.html');
+		d.add(11,0,'Gerenciar alunos','example01.html');
+		d.add(12,11,'Inserir aluno','example01.html');
+		d.add(13,11,'Alterar aluno','example01.html');
+		d.add(14,11,'Buscar aluno','example01.html');
+		d.add(15,0,'Gerenciar professores','example01.html');
+		d.add(16,15,'Inserir professor','example01.html');
+		d.add(17,15,'Alterar professor','example01.html');
+		d.add(18,15,'Buscar professor','example01.html');
+		d.add(19,0,'Acompanhar cursos','example01.html');
+
+		document.write(d);
+
+		//-->
+	</script>
+
+</div>
+</body>
+
+</html>
