@@ -20,6 +20,18 @@ public class CursoDAO {
 		return c;
 	}
 	
+	public static Curso getCursoById(long id) {
+		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
+		dbs.beginTransaction();
+		
+		Curso c = (Curso) dbs.createQuery("from Curso as c where c.id=?")
+	    	.setLong(0, id).uniqueResult();
+		
+		dbs.getTransaction().commit();
+		
+		return c;
+	}
+	
 	@SuppressWarnings("unchecked")
 	public static List<Curso> getAllCursos() {
 		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();

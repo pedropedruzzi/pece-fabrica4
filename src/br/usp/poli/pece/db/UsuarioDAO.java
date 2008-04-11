@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.hibernate.Session;
 
-import br.usp.poli.pece.bl.Matricula;
 import br.usp.poli.pece.bl.Usuario;
 import br.usp.poli.pece.bl.Aluno;
 
@@ -88,7 +87,7 @@ public class UsuarioDAO {
 	}
 
 	
-	/** Cadastra Usuário
+	/** Cadastra Usuï¿½rio
 	 * @param		objUsuario		Usuario validado
 	 * @return		boolean			Verdadeiro (cadastro com sucesso)/Falso
 	 */

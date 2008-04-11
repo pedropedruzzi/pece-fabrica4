@@ -5,7 +5,6 @@ import java.util.List;
 import org.hibernate.Session;
 
 import br.usp.poli.pece.bl.Matricula;
-import br.usp.poli.pece.bl.Matricula.Status;
 
 public class MatriculaDAO {
 

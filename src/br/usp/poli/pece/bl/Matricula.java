@@ -1,7 +1,6 @@
 package br.usp.poli.pece.bl;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,6 +14,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import br.usp.poli.pece.db.CursoDAO;
 import br.usp.poli.pece.db.MatriculaDAO;
 import br.usp.poli.pece.db.UsuarioDAO;
 
@@ -40,6 +40,17 @@ public class Matricula {
 	private Date data;
 	
 	private Status status;
+	
+	
+	public Matricula() {
+		
+	}
+	
+	public Matricula(Aluno aluno, Curso curso) {
+		this.aluno = aluno;
+		this.curso = curso;
+	}
+	
 
 	protected long getId() {
 		return id;
@@ -88,21 +99,16 @@ public class Matricula {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-
-	public void cadastrarMatricula(Matricula matricula) {
-		MatriculaDAO.cadastroMatricula(matricula);
-	}
 	
-	public void matricularAluno(Matricula matricula) {
-		
-	}
-	
-	public static boolean realizaMatricula(long idAluno, int codCurso) {
+	public static boolean realizaMatricula(long idAluno, long idCurso) {
 		try {
-			Aluno a = (Aluno)UsuarioDAO.getUsuarioById(idAluno);
 			
-			//TODO: REALIZAR A PORRA DA MATRICULA
-		
+			Aluno aluno = (Aluno)UsuarioDAO.getUsuarioById(idAluno);
+			Curso curso = CursoDAO.getCursoById(idCurso);
+			
+			Matricula matricula = new Matricula(aluno, curso);
+			MatriculaDAO.cadastroMatricula(matricula);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
