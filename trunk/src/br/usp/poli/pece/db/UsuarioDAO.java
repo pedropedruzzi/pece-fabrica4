@@ -3,6 +3,8 @@ package br.usp.poli.pece.db;
 import java.util.List;
 
 import org.hibernate.Session;
+
+import br.usp.poli.pece.bl.Matricula;
 import br.usp.poli.pece.bl.Usuario;
 import br.usp.poli.pece.bl.Aluno;
 

@@ -56,7 +56,9 @@ public class Usuario {
 	@Transient
 	private String _strUltimoErro;
 	
-	// construtor
+	public Usuario() {
+		sexo = 'M';
+	}
 	
 	
 	
