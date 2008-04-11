@@ -1,0 +1,14 @@
+h1 {
+	font-weight: bold;
+	font-size: 14px;
+	margin: 20px 10px 30px 10px;
+}
+h2 {
+	font-weight: bold;
+	font-size: 12px;
+	margin: 20px 10px 10px 10px;
+}
+p.teste {
+	font-size: 40px;
+	margin: 5px 10px 5px 10px;
+}
