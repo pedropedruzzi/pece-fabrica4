@@ -1,5 +1,7 @@
 package br.usp.poli.pece.db;
 
+import java.util.List;
+
 import org.hibernate.Session;
 
 import br.usp.poli.pece.bl.Curso;
@@ -16,6 +18,18 @@ public class CursoDAO {
 		dbs.getTransaction().commit();
 		
 		return c;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static List<Curso> getAllCursos() {
+		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
+		dbs.beginTransaction();
+		
+		List<Curso> cursos = (List<Curso>) dbs.createQuery("from Curso").list();
+		
+		dbs.getTransaction().commit();
+		
+		return cursos;
 	}
 
 	public static void cadastroCurso(Curso curso) {
