@@ -1,6 +1,7 @@
 <%@page import="br.usp.poli.pece.bl.Aluno"%>
 <%@page import="java.util.List"%>
 
+<%@page import="br.usp.poli.pece.db.UsuarioDAO"%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,7 +18,7 @@
                 <th>CPF</th>
             </tr>
             <%
-            List<Aluno> lista = Aluno.consultaAluno("");
+            List<Aluno> lista = UsuarioDAO.listaTodosAlunos();
             for (Aluno aluno : lista) {
             %>
             <tr>
