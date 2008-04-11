@@ -8,9 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Transient;
 
-import br.usp.poli.pece.bl.estruturas.CursosComplementares;
+import br.usp.poli.pece.bl.estruturas.CursoComplementar;
 import br.usp.poli.pece.bl.estruturas.FormacaoAcademica;
 import br.usp.poli.pece.bl.estruturas.HistoricoProfissional;
 import br.usp.poli.pece.bl.estruturas.PesquisaPECE;
@@ -18,32 +17,26 @@ import br.usp.poli.pece.bl.estruturas.PesquisaPECE;
 @Entity
 public class Aluno extends Usuario {
 	
-	//@OneToMany(mappedBy="aluno")
-	@Transient
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="aluno")
 	private Set<Matricula> matriculas;
 	
-	//@OneToMany(mappedBy="aluno")
-	@Transient
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="aluno")
 	private Set<Inscricao> inscricoes;
 	
-	//@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
-	@Transient
+	@OneToMany(fetch=FetchType.LAZY, cascade={CascadeType.ALL})
 	private List<FormacaoAcademica> formacao;
 	
-	//@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
-	@Transient
-	private List<CursosComplementares> cursosComplementares;
+	@OneToMany(fetch=FetchType.LAZY, cascade={CascadeType.ALL})
+	private List<CursoComplementar> cursosComplementares;
 	
-	//@OneToOne
-	@Transient
+	@OneToOne(fetch=FetchType.LAZY)
 	private HistoricoProfissional historicoProfissional;
 	
 	private String qualificacao;
 	
 	private String motivacao;
 	
-	//@OneToOne
-	@Transient
+	@OneToOne(fetch=FetchType.LAZY)
 	private PesquisaPECE pesquisaPece;
 	
 	
@@ -72,12 +65,12 @@ public class Aluno extends Usuario {
 		this.formacao = formacao;
 	}
 
-	public List<CursosComplementares> getCursosComplementares() {
+	public List<CursoComplementar> getCursosComplementares() {
 		return cursosComplementares;
 	}
 
 	public void setCursosComplementares(
-			List<CursosComplementares> cursosComplementares) {
+			List<CursoComplementar> cursosComplementares) {
 		this.cursosComplementares = cursosComplementares;
 	}
 

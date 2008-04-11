@@ -1,6 +1,14 @@
 package br.usp.poli.pece.bl.estruturas;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class PesquisaPECE {
+
+	@Id @GeneratedValue
+	private long id;
 	
 	// conhecimento do curso?
 	private boolean malaDiretaFolheto = false;
@@ -12,9 +20,16 @@ public class PesquisaPECE {
 	private boolean anuncioJornal = false;
 	private boolean anuncioRevista = false;
 	private boolean internetSitePesquisa = false;
-	
 	private boolean outros = false;
 	private String descricaoOutros;
+	
+	
+	public long getId() {
+		return id;
+	}
+	protected void setId(long id) {
+		this.id = id;
+	}
 	
 	public boolean isMalaDiretaFolheto() {
 		return malaDiretaFolheto;

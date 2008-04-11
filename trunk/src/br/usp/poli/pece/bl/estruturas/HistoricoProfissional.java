@@ -1,9 +1,14 @@
 package br.usp.poli.pece.bl.estruturas;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 public class HistoricoProfissional {
+
+	@Id @GeneratedValue
+	private long id;
 	
 	private String empresaAtual; // instituicao/empresa onde trabalha
 	
@@ -24,6 +29,14 @@ public class HistoricoProfissional {
 	private String email; // email empresa
 	
 	private String atividadesAnteriores; // atividades profissionais anteriores
+	
+
+	public long getId() {
+		return id;
+	}
+	protected void setId(long id) {
+		this.id = id;
+	}
 		
 	public String getEmpresaAtual() {
 		return empresaAtual;

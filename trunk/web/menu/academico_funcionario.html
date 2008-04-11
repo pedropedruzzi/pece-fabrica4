@@ -3,6 +3,7 @@
 <html>
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<title>Menu funcionário</title>
 
 	<link rel="StyleSheet" href="dtree.css" type="text/css" />
@@ -20,27 +21,38 @@
 		<!--
 
 		d = new dTree('d');
+		i = 0;
 
-		d.add(0,-1,'Menu funcionário');
-		d.add(1,0,'Cadastro','example01.html');
-		d.add(2,0,'Lista alunos','example01.html');
-		d.add(3,0,'Gerenciar cursos','example01.html');
-		d.add(4,3,'Inserir curso','example01.html');
-		d.add(5,3,'Alterar curso','example01.html');
-		d.add(6,3,'Buscar curso','example01.html');
-		d.add(7,0,'Gerenciar matérias','example01.html');
-		d.add(8,7,'Inserir matéria','example01.html');
-		d.add(9,7,'Alterar matéria','example01.html');
-		d.add(10,7,'Buscar matéria','example01.html');
-		d.add(11,0,'Gerenciar alunos','example01.html');
-		d.add(12,11,'Inserir aluno','example01.html');
-		d.add(13,11,'Alterar aluno','example01.html');
-		d.add(14,11,'Buscar aluno','example01.html');
-		d.add(15,0,'Gerenciar professores','example01.html');
-		d.add(16,15,'Inserir professor','example01.html');
-		d.add(17,15,'Alterar professor','example01.html');
-		d.add(18,15,'Buscar professor','example01.html');
-		d.add(19,0,'Acompanhar cursos','example01.html');
+		root = d.add(i++,-1,'Menu funcionário');
+		
+            
+            d.add(i++,root,'Cadastro','../modules/academico_cadastro.jsp','','content');
+            
+            d.add(i++,root,'Lista alunos','../modules/academico_listaalunos.jsp','','content');
+            
+            d.add(i++,root,'Nova matrícula','../modules/academico_matricula.jsp','','content');
+	        
+			curso = d.add(i++,root,'Gerenciar cursos');
+				d.add(i++,curso,'Inserir curso','example01.html');
+				d.add(i++,curso,'Alterar curso','example01.html');
+				d.add(i++,curso,'Buscar curso','example01.html');
+				
+			materia = d.add(i++,root,'Gerenciar matérias');
+				d.add(i++,materia,'Inserir matérias','example01.html');
+				d.add(i++,materia,'Alterar matérias','example01.html');
+				d.add(i++,materia,'Buscar matérias','example01.html');
+				
+			aluno = d.add(i++,root,'Gerenciar alunos');
+				d.add(i++,aluno,'Inserir aluno','example01.html');
+				d.add(i++,aluno,'Alterar aluno','example01.html');
+				d.add(i++,aluno,'Buscar aluno','example01.html');
+			
+			professor = d.add(i++,root,'Gerenciar professores');
+				d.add(i++,professor,'Inserir professor','example01.html');
+				d.add(i++,professor,'Alterar professor','example01.html');
+				d.add(i++,professor,'Buscar professor','example01.html');
+			
+			d.add(i++,root,'Acompanhar cursos','example01.html');
 
 		document.write(d);
 

@@ -67,7 +67,7 @@ function dTree(objName) {
 
 // Adds a new node to the node array
 dTree.prototype.add = function(id, pid, name, url, title, target, icon, iconOpen, open) {
-	this.aNodes[this.aNodes.length] = new Node(id, pid, name, url, title, target, icon, iconOpen, open);
+	this.aNodes[this.aNodes.length] = new Node(id, pid, name, url, title, target, icon, iconOpen, open);    return id;
 };
 
 // Open/close all nodes

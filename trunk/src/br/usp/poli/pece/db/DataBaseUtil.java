@@ -7,7 +7,7 @@ import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
 import br.usp.poli.pece.bl.*;
-import br.usp.poli.pece.bl.estruturas.CursosComplementares;
+import br.usp.poli.pece.bl.estruturas.CursoComplementar;
 import br.usp.poli.pece.bl.estruturas.FormacaoAcademica;
 import br.usp.poli.pece.bl.estruturas.HistoricoProfissional;
 import br.usp.poli.pece.bl.estruturas.PesquisaPECE;
@@ -32,10 +32,10 @@ public class DataBaseUtil {
 			cfg.addAnnotatedClass(Professor.class);
 			cfg.addAnnotatedClass(Turma.class);
 			cfg.addAnnotatedClass(Usuario.class);
-			//cfg.addAnnotatedClass(CursosComplementares.class);
-			//cfg.addAnnotatedClass(FormacaoAcademica.class);
-			//cfg.addAnnotatedClass(HistoricoProfissional.class);
-			//cfg.addAnnotatedClass(PesquisaPECE.class);
+			cfg.addAnnotatedClass(CursoComplementar.class);
+			cfg.addAnnotatedClass(FormacaoAcademica.class);
+			cfg.addAnnotatedClass(HistoricoProfissional.class);
+			cfg.addAnnotatedClass(PesquisaPECE.class);
 			
 			
 			sessionFactory = cfg.buildSessionFactory();
