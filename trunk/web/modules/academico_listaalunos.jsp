@@ -1,4 +1,3 @@
-<%@page import="br.usp.poli.pece.bl.Usuario"%>
 <%@page import="br.usp.poli.pece.bl.Aluno"%>
 <%@page import="java.util.List"%>
 
@@ -18,8 +17,7 @@
                 <th>CPF</th>
             </tr>
             <%
-            Usuario alunos = new Usuario();
-            List<Aluno> lista = alunos.consultaAluno("");
+            List<Aluno> lista = Aluno.consultaAluno("");
             for (Aluno aluno : lista) {
             %>
             <tr>
