@@ -2,53 +2,44 @@ package br.usp.poli.pece.db;
 
 import java.util.List;
 
-import org.hibernate.Session;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Expression;
 
 import br.usp.poli.pece.bl.Matricula;
 
-public class MatriculaDAO {
-
-	public static void cadastroMatricula(Matricula matricula) {
-		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
+public class MatriculaDAO extends GenericDAO<Matricula> {
+	
+	protected MatriculaDAO() {
 		
-		dbs.beginTransaction();
-		dbs.save(matricula);
-		dbs.getTransaction().commit();
 	}
 	
 	/**
-	 * Lista todas as matriculas do sistema de determinado tipo
-	 * 
-	 * @return		List<Aluno>		Lista de todos os alunos cadastrados
+	 * Lista todas as matriculas do sistema em determinado status
 	 */
 	@SuppressWarnings("unchecked")
-	public static List<Matricula> getMatriculaByStatus(Matricula.Status status) {
-		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
-		dbs.beginTransaction();
-		
-	    List<Matricula> result = (List<Matricula>)dbs.createQuery("from Matricula where status=?").setInteger(0, status.ordinal()).list();
+	public List<Matricula> findByStatus(Matricula.Status status) {
+		Criterion c = Expression.eq("status", status);
 	    
-	    dbs.getTransaction().commit();
-	    
-	    return result;
+	    return findByCriteria(c);
 	}
 
 	@SuppressWarnings("unchecked")
-	public static List<Matricula> getMatriculaByStatus(Matricula.Status status, int idCoordenador) {
-		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
-		dbs.beginTransaction();
+	public List<Matricula> findByStatus(Matricula.Status status, int idCoordenador) {
+
+		Criterion cStatus = Expression.eq("status", status);
+		Criterion cCoord = Expression.eq("curso.coordenador.id", idCoordenador);
 		
-	    List<Matricula> result = (List<Matricula>)dbs.createQuery("from Matricula where status=? and curso.coordenador.id=?")
-	    	.setInteger(0, status.ordinal())
-	    	.setInteger(1, idCoordenador).list();
+		// se isso não der certo, dá uma olhada em:
+		// http://www.hibernate.org/hib_docs/v3/reference/en/html/querycriteria.html
 	    
-	    dbs.getTransaction().commit();
-	    
-	    return result;
+	    return findByCriteria(cStatus, cCoord);
 	}
 	
 	public static void main(String[] args) {
-		List<Matricula> matriculas = MatriculaDAO.getMatriculaByStatus(Matricula.Status.PAGO);
+		
+		// TODO: TESTARR!!
+		
+		List<Matricula> matriculas = DAOFactory.getMatriculaDAO().findByStatus(Matricula.Status.PAGO);
 		
 		System.out.println(matriculas.size());
 		
@@ -57,7 +48,7 @@ public class MatriculaDAO {
 		}
 		
 		
-		List<Matricula> matriculas2 = MatriculaDAO.getMatriculaByStatus(Matricula.Status.PAGO, 0);
+		List<Matricula> matriculas2 = DAOFactory.getMatriculaDAO().findByStatus(Matricula.Status.PAGO, 0);
 		
 		System.out.println(matriculas2.size());
 		

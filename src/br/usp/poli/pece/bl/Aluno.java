@@ -13,6 +13,7 @@ import br.usp.poli.pece.bl.estruturas.CursoComplementar;
 import br.usp.poli.pece.bl.estruturas.FormacaoAcademica;
 import br.usp.poli.pece.bl.estruturas.HistoricoProfissional;
 import br.usp.poli.pece.bl.estruturas.PesquisaPECE;
+import br.usp.poli.pece.db.DAOFactory;
 
 @Entity
 public class Aluno extends Usuario {
@@ -104,6 +105,14 @@ public class Aluno extends Usuario {
 
 	public void setPesquisaPece(PesquisaPECE pesquisaPece) {
 		this.pesquisaPece = pesquisaPece;
+	}
+	
+	
+
+	
+	// Estou pensando muito seriamente em tirar este método!
+	public static List<Aluno> consultaAluno(String filtro) {
+		return DAOFactory.getAlunoDAO().findByNameFilter(filtro);
 	}
 	
 }

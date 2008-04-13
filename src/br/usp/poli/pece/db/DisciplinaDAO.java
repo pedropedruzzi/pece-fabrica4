@@ -1,30 +1,20 @@
 package br.usp.poli.pece.db;
 
-import org.hibernate.Session;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Expression;
 
 import br.usp.poli.pece.bl.Disciplina;
 
-public class DisciplinaDAO {
-
+public class DisciplinaDAO extends GenericDAO<Disciplina> {
 	
-	public static void cadastroDisciplina(Disciplina disciplina) {
-		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
+	protected DisciplinaDAO() {
 		
-		dbs.beginTransaction();
-		dbs.save(disciplina);
-		dbs.getTransaction().commit();
 	}
 
-	public static Disciplina getDisciplinaByCodigo(String codigo) {
-		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
-		dbs.beginTransaction();
-		
-		Disciplina d = (Disciplina) dbs.createQuery("from Disciplina as d where d.codDisciplina=?")
-	    	.setString(0, codigo).uniqueResult();
-		
-		dbs.getTransaction().commit();
-		
-		return d;
+	public Disciplina findByCodigo(String codigo) {
+		Criterion c = Expression.eq("codigo", codigo);
+	    
+	    return findUniqueResultByCriteria(c);
 	}
 
 }
