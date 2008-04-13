@@ -9,9 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.Transient;
 
-import br.usp.poli.pece.db.UsuarioDAO;
+import br.usp.poli.pece.db.DAOFactory;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
@@ -52,9 +51,7 @@ public class Usuario {
 	private String uf;
 	private long telefone;
 	private long celular;
-				
-	@Transient
-	private String _strUltimoErro;
+	
 	
 	public Usuario() {
 		sexo = 'M';
@@ -191,65 +188,31 @@ public class Usuario {
 		this.complementoEndereco = complementoEndereco;
 	}
 	
-	// 	Metodos
-	public static List<Usuario> consultaUsuario(String strFiltro)
-	{
-		return UsuarioDAO.consultaUsuario(strFiltro);
+	// Estou pensando muito seriamente em tirar este método!
+	public static List<Usuario> consultaUsuario(String filtro) {
+		return DAOFactory.getUsuarioDAO().findByNameFilter(filtro);
+	}
+	
+	public void persist() {
+		String erro = validaUsuario();
+		
+		if (erro == null)
+			DAOFactory.getUsuarioDAO().makePersistent(this);
+		else
+			throw new RuntimeException(erro);
+	}
+	
+	private String validaUsuario() {
+		if (nome.trim().length() == 0) {
+			return "O campo 'nome' deve ser preenchido";
+		}
+		
+		if (email.trim().length() == 0)	{
+			return "O campo 'email' deve ser preenchido";
+		}
+		
+		return null;
 	}
 
-	public static List<Aluno> consultaAluno(String strFiltro)
-	{
-		return UsuarioDAO.consultaAluno(strFiltro);
-	}
-	
-	public boolean cadastraUsuario()
-	{
-		boolean blnRetVal = true;
-		if (ValidaUsuario())
-			UsuarioDAO.cadastraUsuario(this);
-		else
-			blnRetVal = false;
-		
-		return blnRetVal;
-	}
-		
-	public boolean atualizaUsuario()
-	{
-		boolean blnRetVal = true;
-		if (ValidaUsuario())
-			UsuarioDAO.updateUsuario(this);
-		else
-			blnRetVal = false;
-		
-		return blnRetVal;
-	}
-	
-	/**  Valida Usuario
-	 * @return 		boolean 		Usuario válido/não válido
-	 */
-	private boolean ValidaUsuario()
-	{
-		boolean blnRetVal = true;
-		if (nome.trim().length() == 0)
-		{
-			_strUltimoErro = "O campo 'nome' deve ser preenchido";
-			blnRetVal = false;
-		}
-		if (email.trim().length() == 0)
-		{
-			_strUltimoErro = "O campo 'email' deve ser preenchido";
-			blnRetVal = false;
-		}
-		return blnRetVal;
-	}
-	
-	/** Obtem ultimo erro
-	 * @return		string		Ultimo erro gerado pelos processos 
-	 * 
-	 */
-	public String ObtemUltimoErro()
-	{
-		return _strUltimoErro;
-	}
 		
 }

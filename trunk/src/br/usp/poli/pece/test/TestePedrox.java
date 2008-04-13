@@ -7,10 +7,8 @@ import br.usp.poli.pece.bl.Curso;
 import br.usp.poli.pece.bl.Disciplina;
 import br.usp.poli.pece.bl.Professor;
 import br.usp.poli.pece.bl.Turma;
-import br.usp.poli.pece.db.CursoDAO;
+import br.usp.poli.pece.db.DAOFactory;
 import br.usp.poli.pece.db.DataBaseUtil;
-import br.usp.poli.pece.db.DisciplinaDAO;
-import br.usp.poli.pece.db.UsuarioDAO;
 
 public class TestePedrox {
 
@@ -87,9 +85,9 @@ public class TestePedrox {
 		criatudo();
 		
 		if (true) return;
-		Professor risco = (Professor) UsuarioDAO.getUsuarioByLogin("jrisco");
-		Curso c = CursoDAO.getCursoByCodigo("1234");
-		Disciplina d = DisciplinaDAO.getDisciplinaByCodigo("XYZ1234");
+		Professor risco = (Professor) DAOFactory.getUsuarioDAO().findByLogin("jrisco");
+		Curso c = DAOFactory.getCursoDAO().findByCodigo("1234");
+		Disciplina d = DAOFactory.getDisciplinaDAO().findByCodigo("XYZ1234");
 		
 		System.out.println(risco.getNome());
 		System.out.println(c.getNome());

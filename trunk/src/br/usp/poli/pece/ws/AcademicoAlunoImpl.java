@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import javax.jws.WebService;
 
-import br.usp.poli.pece.db.UsuarioDAO;
+import br.usp.poli.pece.db.DAOFactory;
 import br.usp.poli.pece.ws.bl.Aluno;
 
 @WebService(endpointInterface="br.usp.poli.pece.ws.AcademicoAluno")
@@ -24,7 +24,7 @@ public class AcademicoAlunoImpl implements AcademicoAluno {
 
 	@Override
 	public List<Aluno> listaTodosAlunos() {
-		List<br.usp.poli.pece.bl.Aluno> lista = UsuarioDAO.listaTodosAlunos();
+		List<br.usp.poli.pece.bl.Aluno> lista = DAOFactory.getAlunoDAO().findAll();
 		List<Aluno> listaD = new LinkedList<Aluno>();
 		
 		for (br.usp.poli.pece.bl.Aluno a : lista) {

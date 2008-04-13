@@ -14,9 +14,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import br.usp.poli.pece.db.CursoDAO;
-import br.usp.poli.pece.db.MatriculaDAO;
-import br.usp.poli.pece.db.UsuarioDAO;
+import br.usp.poli.pece.db.DAOFactory;
 
 @Entity
 @Table(uniqueConstraints={@UniqueConstraint(columnNames={"aluno_id", "curso_id"}), @UniqueConstraint(columnNames={"numero"})})
@@ -100,21 +98,15 @@ public class Matricula {
 		this.status = status;
 	}
 	
-	public static boolean realizaMatricula(long idAluno, long idCurso) {
-		try {
-			
-			Aluno aluno = (Aluno)UsuarioDAO.getUsuarioById(idAluno);
-			Curso curso = CursoDAO.getCursoById(idCurso);
-			
-			Matricula matricula = new Matricula(aluno, curso);
-			MatriculaDAO.cadastroMatricula(matricula);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-		
-		return true;
+	// TODO: TESTAR!
+	public static Matricula realizaMatricula(long idAluno, long idCurso) {
+		Aluno aluno = DAOFactory.getAlunoDAO().findById(idAluno);
+		Curso curso = DAOFactory.getCursoDAO().findById(idCurso);
+
+		Matricula matricula = new Matricula(aluno, curso);
+		DAOFactory.getMatriculaDAO().makePersistent(matricula);
+
+		return matricula;
 	}
 	
 	public static enum Status { PAGAMENTO_PENDENTE, PAGO, AGENDAR_ENTREVISTA, MATRICULADO, RECUSADO }

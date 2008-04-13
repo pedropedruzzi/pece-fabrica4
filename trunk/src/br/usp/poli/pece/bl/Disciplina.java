@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import br.usp.poli.pece.db.DisciplinaDAO;
+import br.usp.poli.pece.db.DAOFactory;
 
 @Entity
 public class Disciplina {
@@ -77,10 +77,9 @@ public class Disciplina {
 		this.curso = curso;
 	}
 	
-	public void CadastroDisciplina(Disciplina disciplina) {
-		DisciplinaDAO.cadastroDisciplina(disciplina);
+	public void persist(Disciplina disciplina) {
+		DAOFactory.getDisciplinaDAO().makePersistent(disciplina);
 	}
-	
 	
 	
 }

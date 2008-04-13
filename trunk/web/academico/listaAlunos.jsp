@@ -1,11 +1,9 @@
+<%@page contentType="text/html; charset=ISO-8859-1" %>
 <%@page import="br.usp.poli.pece.bl.Aluno"%>
 <%@page import="java.util.List"%>
-
-<%@page import="br.usp.poli.pece.db.UsuarioDAO"%>
-<%@page import="br.usp.poli.pece.db.DAOFactory"%>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
         <link rel="stylesheet" type="text/css" href="../css/frame.css" />
         <link rel="stylesheet" type="text/css" href="../css/academico.css" />
     </head>
@@ -19,8 +17,8 @@
                 <th>CPF</th>
             </tr>
             <%
-            List<Aluno> lista = DAOFactory.getAlunoDAO().findAll();
-            for (Aluno aluno : lista) {
+            List<Aluno> alunos = (List<Aluno>) request.getAttribute("alunos");
+            for (Aluno aluno : alunos) {
             %>
             <tr>
                 <td><%= aluno.getNome() %></td>

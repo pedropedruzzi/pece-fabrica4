@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import br.usp.poli.pece.db.CursoDAO;
+import br.usp.poli.pece.db.DAOFactory;
 
 
 /**
@@ -115,12 +115,12 @@ public class Curso {
 	 *
 	 * @param  objCurso	Objeto contendo informacoes do curso a ser cadastrado
 	 */	
-	public static void cadstroCurso(Curso objCurso) {
-		CursoDAO.cadastroCurso(objCurso);
+	public static void cadstroCurso(Curso curso) {
+		DAOFactory.getCursoDAO().makePersistent(curso);
 	}
 	
 	public static Curso getCursoByCodigo(String codigo) {
-		return CursoDAO.getCursoByCodigo(codigo);
+		return DAOFactory.getCursoDAO().findByCodigo(codigo);
 	}
 	
 }
