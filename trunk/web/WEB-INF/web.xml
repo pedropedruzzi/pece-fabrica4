@@ -25,6 +25,11 @@
        <servlet-name>CadastraCurso</servlet-name>
        <servlet-class>br.usp.poli.pece.servlet.CadastraCursoServlet</servlet-class>
     </servlet>
+    
+    <servlet>
+       <servlet-name>AlteraUsuario</servlet-name>
+       <servlet-class>br.usp.poli.pece.servlet.AlteraUsuarioServlet</servlet-class>
+    </servlet>
 	
 	<servlet-mapping>
 	   <servlet-name>CadastraUsuario</servlet-name>
@@ -44,6 +49,11 @@
     <servlet-mapping>
        <servlet-name>CadastraCurso</servlet-name>
        <url-pattern>/academico/CadastraCurso</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+       <servlet-name>AlteraUsuario</servlet-name>
+       <url-pattern>/academico/AlteraUsuario</url-pattern>
     </servlet-mapping>
     
 	

@@ -21,15 +21,16 @@
             <%
             List<Usuario> usuarios = (List<Usuario>) request.getAttribute("usuarios");
             for (Usuario usuario : usuarios) {
+            	String link = "AlteraUsuario?id=" + usuario.getId();
             %>
             <tr>
-                <td><%= usuario.getClass().getSimpleName() %></td>
-                <td><%= usuario.getId() %></td>
-                <td><%= usuario.getNome() %></td>
-                <td><%= usuario.getEmail() %></td>
-                <td><%= usuario.getLogin() %></td>
-                <td><%= usuario.getRg() %></td>
-                <td><%= usuario.getCpf() %></td>
+                <td><a href="<%= link %>"><%= usuario.getClass().getSimpleName() %></a></td>
+                <td><a href="<%= link %>"><%= usuario.getId() %></a></td>
+                <td><a href="<%= link %>"><%= usuario.getNome() %></a></td>
+                <td><a href="<%= link %>"><%= usuario.getEmail() %></a></td>
+                <td><a href="<%= link %>"><%= usuario.getLogin() %></a></td>
+                <td><a href="<%= link %>"><%= usuario.getRg() %></a></td>
+                <td><a href="<%= link %>"><%= usuario.getCpf() %></a></td>
             </tr>
             <%
             }
