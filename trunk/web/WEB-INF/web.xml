@@ -30,6 +30,11 @@
        <servlet-name>AlteraUsuario</servlet-name>
        <servlet-class>br.usp.poli.pece.servlet.AlteraUsuarioServlet</servlet-class>
     </servlet>
+    
+    <servlet>
+       <servlet-name>RemoveUsuario</servlet-name>
+       <servlet-class>br.usp.poli.pece.servlet.RemoveUsuarioServlet</servlet-class>
+    </servlet>
 	
 	<servlet-mapping>
 	   <servlet-name>CadastraUsuario</servlet-name>
@@ -54,6 +59,11 @@
     <servlet-mapping>
        <servlet-name>AlteraUsuario</servlet-name>
        <url-pattern>/academico/AlteraUsuario</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+       <servlet-name>RemoveUsuario</servlet-name>
+       <url-pattern>/academico/RemoveUsuario</url-pattern>
     </servlet-mapping>
     
 	
