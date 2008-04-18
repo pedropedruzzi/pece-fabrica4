@@ -11,7 +11,7 @@
         <%
         Usuario usuario = (Usuario)request.getAttribute("usuario");
         %>
-        <h2>O usuário '<%= usuario.getNome() %>' foi cadastrado com sucesso!</h2><br>
+        <h2>O usuário '<%= usuario.getNome() %>' foi cadastrado/atualizado com sucesso!</h2><br>
         <a href="../modules/academico_main.html">Voltar</a>
     </body>
 </html>

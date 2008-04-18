@@ -1,6 +1,6 @@
 package br.usp.poli.pece.servlet;
 
-import java.text.SimpleDateFormat;
+import java.text.DateFormat;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,6 +9,8 @@ import br.usp.poli.pece.bl.Aluno;
 import br.usp.poli.pece.bl.Funcionario;
 import br.usp.poli.pece.bl.Professor;
 import br.usp.poli.pece.bl.Usuario;
+import br.usp.poli.pece.bl.Util;
+import br.usp.poli.pece.db.DAOFactory;
 
 
 public class CadastraUsuarioServlet extends TransactionServlet {
@@ -16,19 +18,25 @@ public class CadastraUsuarioServlet extends TransactionServlet {
 
 	@Override
 	protected void doPostTransaction(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		final SimpleDateFormat dma = new SimpleDateFormat("dd/MM/yyyy");
-
-		String tipo = request.getParameter("tipo");
+		final DateFormat dma = Util.getDateFormat();
 		Usuario user = null;
-
-		if (tipo.equals("Aluno")) {
-			user = new Aluno();
-		} else if (tipo.equals("Professor")) {
-			user = new Professor();
-		} else if (tipo.equals("Funcionario")) {
-			user = new Funcionario();
+		
+		String strId = request.getParameter("id");
+		if (strId == null) {
+			String tipo = request.getParameter("tipo");
+	
+			if (tipo.equals("Aluno")) {
+				user = new Aluno();
+			} else if (tipo.equals("Professor")) {
+				user = new Professor();
+			} else if (tipo.equals("Funcionario")) {
+				user = new Funcionario();
+			} else {
+				throw new RuntimeException("Tipo de usuário desconhecido");
+			}
 		} else {
-			throw new RuntimeException("Tipo de usuário desconhecido");
+			System.out.println("Usuario já existe.. Vou fazer update!");
+			user = DAOFactory.getUsuarioDAO().findById(Long.parseLong(strId));
 		}
 
 		user.setSenha(request.getParameter("senha"));
