@@ -15,6 +15,7 @@
                 <th>Nome</th>
                 <th>Status</th>
             </tr>
+            
             <%
             List<Matricula> matriculas = (List<Matricula>) request.getAttribute("matriculas");
             for (Matricula matricula : matriculas) {
