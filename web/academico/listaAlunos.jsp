@@ -10,6 +10,7 @@
     <body>
         <table border='1'>
             <tr>
+                <th>Id</th>
                 <th>Nome</th>
                 <th>Email</th>
                 <th>Login</th>
@@ -21,6 +22,7 @@
             for (Aluno aluno : alunos) {
             %>
             <tr>
+                <td><%= aluno.getId() %></td>
                 <td><%= aluno.getNome() %></td>
                 <td><%= aluno.getEmail() %></td>
                 <td><%= aluno.getLogin() %></td>

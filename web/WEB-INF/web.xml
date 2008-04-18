@@ -20,6 +20,11 @@
        <servlet-name>ListaAlunos</servlet-name>
        <servlet-class>br.usp.poli.pece.servlet.ListaAlunosServlet</servlet-class>
     </servlet>
+    
+    <servlet>
+       <servlet-name>CadastraCurso</servlet-name>
+       <servlet-class>br.usp.poli.pece.servlet.CadastraCursoServlet</servlet-class>
+    </servlet>
 	
 	<servlet-mapping>
 	   <servlet-name>CadastraUsuario</servlet-name>
@@ -34,6 +39,11 @@
     <servlet-mapping>
        <servlet-name>MatriculaAluno</servlet-name>
        <url-pattern>/academico/MatriculaAluno</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+       <servlet-name>CadastraCurso</servlet-name>
+       <url-pattern>/academico/CadastraCurso</url-pattern>
     </servlet-mapping>
     
 	

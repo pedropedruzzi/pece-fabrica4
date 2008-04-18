@@ -6,6 +6,7 @@ import br.usp.poli.pece.bl.estruturas.HistoricoProfissional;
 
 public class Aluno {
 	
+	public long id;
 	public long cpf;
 	public String nome;
 	public char sexo;
