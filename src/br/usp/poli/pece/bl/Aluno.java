@@ -111,6 +111,7 @@ public class Aluno extends Usuario {
 
 	
 	// Estou pensando muito seriamente em tirar este método!
+	// -Quem?
 	public static List<Aluno> consultaAluno(String filtro) {
 		return DAOFactory.getAlunoDAO().findByNameFilter(filtro);
 	}
