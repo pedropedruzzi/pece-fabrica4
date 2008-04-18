@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 import br.usp.poli.pece.db.DAOFactory;
+import br.usp.poli.pece.ws.Financeiro;
+import br.usp.poli.pece.ws.WebServicesClient;
 
 @Entity
 @Table(uniqueConstraints={@UniqueConstraint(columnNames={"aluno_id", "curso_id"}), @UniqueConstraint(columnNames={"numero"})})
@@ -47,6 +49,8 @@ public class Matricula {
 	public Matricula(Aluno aluno, Curso curso) {
 		this.aluno = aluno;
 		this.curso = curso;
+		
+		this.status = Status.PAGAMENTO_PENDENTE;
 	}
 	
 
@@ -100,8 +104,13 @@ public class Matricula {
 	
 	// TODO: TESTAR!
 	public static Matricula realizaMatricula(long idAluno, long idCurso) {
+		
 		Aluno aluno = DAOFactory.getAlunoDAO().findById(idAluno);
 		Curso curso = DAOFactory.getCursoDAO().findById(idCurso);
+
+		final Financeiro f = WebServicesClient.getFinanceiroWS();
+		if (!f.solicitaCobrancaTaxaInscricao(new br.usp.poli.pece.ws.bl.Aluno(aluno), curso.getCodCurso()))
+			System.err.println("Atenção: Financeiro não aceitou solicitacao de cobrança de taxa de inscrição!");
 
 		Matricula matricula = new Matricula(aluno, curso);
 		DAOFactory.getMatriculaDAO().makePersistent(matricula);

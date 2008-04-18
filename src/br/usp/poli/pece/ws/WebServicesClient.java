@@ -10,19 +10,31 @@ import br.usp.poli.pece.ws.bl.Aluno;
 
 public class WebServicesClient {
 	
-	public static AcademicoAluno getAlunosWS() {
-		JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
-		factory.getInInterceptors().add(new LoggingInInterceptor());
-		factory.getOutInterceptors().add(new LoggingOutInterceptor());
-		factory.setServiceClass(AcademicoAluno.class);
-		factory.setAddress("http://localhost:9000/AcademicoAluno");
-		AcademicoAluno client = (AcademicoAluno) factory.create();
+	private static JaxWsProxyFactoryBean academico;
+	private static JaxWsProxyFactoryBean financeiro;
+	
+	static {
+		academico = new JaxWsProxyFactoryBean();
+		academico.getInInterceptors().add(new LoggingInInterceptor());
+		academico.getOutInterceptors().add(new LoggingOutInterceptor());
+		academico.setServiceClass(AcademicoAluno.class);
+		academico.setAddress("http://localhost:9000/AcademicoAluno");
 
-		return client;
+		financeiro = new JaxWsProxyFactoryBean();
+		financeiro.getInInterceptors().add(new LoggingInInterceptor());
+		financeiro.getOutInterceptors().add(new LoggingOutInterceptor());
+		financeiro.setServiceClass(Financeiro.class);
+		financeiro.setAddress("http://143.107.102.56:9000/Financeiro");
 	}
 	
+	public static AcademicoAluno getAlunosWS() {
+		return (AcademicoAluno) academico.create();
+	}
 	
-	//Teste para funcoes de aluno
+	public static Financeiro getFinanceiroWS() {
+		return (Financeiro) financeiro.create();
+	}
+	
 	public static void main(String[] args) {
 		AcademicoAluno aluno = WebServicesClient.getAlunosWS();
 				
