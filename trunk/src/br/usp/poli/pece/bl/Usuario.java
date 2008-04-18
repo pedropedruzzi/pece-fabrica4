@@ -189,6 +189,7 @@ public class Usuario {
 	}
 	
 	// Estou pensando muito seriamente em tirar este método!
+	//Não tire!!! -->Gabriel--> serah util no WebService "Desempenho"
 	public static List<Usuario> consultaUsuario(String filtro) {
 		return DAOFactory.getUsuarioDAO().findByNameFilter(filtro);
 	}
