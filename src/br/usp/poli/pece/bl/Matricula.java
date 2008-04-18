@@ -46,7 +46,7 @@ public class Matricula {
 	}
 	
 
-	protected long getId() {
+	public long getId() {
 		return id;
 	}
 
