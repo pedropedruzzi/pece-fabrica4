@@ -1,5 +1,5 @@
 <%@page contentType="text/html; charset=ISO-8859-1" %>
-<%@page import="br.usp.poli.pece.bl.Usuario"%>
+<%@page import="br.usp.poli.pece.bl.Matricula"%>
 <%@page import="java.util.List"%>
 <html>
     <head>
@@ -10,27 +10,20 @@
     <body>
         <table border='1'>
             <tr>
-                <th>Tipo</th>
-                <th>Id</th>
+                <th>Matrícula</th>
+                <th>Id Aluno</th>
                 <th>Nome</th>
-                <th>Email</th>
-                <th>Login</th>
-                <th>RG</th>
-                <th>CPF</th>
+                <th>Status</th>
             </tr>
             <%
-            List<Usuario> usuarios = (List<Usuario>) request.getAttribute("usuarios");
-            for (Usuario usuario : usuarios) {
-            	String link = "AlteraUsuario?id=" + usuario.getId();
+            List<Matricula> alunos = (List<Matricula>) request.getAttribute("matriculas");
+            for (Matricula matricula : matriculas) {
             %>
             <tr>
-                <td><a href="<%= link %>"><%= usuario.getClass().getSimpleName() %></a></td>
-                <td><a href="<%= link %>"><%= usuario.getId() %></a></td>
-                <td><a href="<%= link %>"><%= usuario.getNome() %></a></td>
-                <td><a href="<%= link %>"><%= usuario.getEmail() %></a></td>
-                <td><a href="<%= link %>"><%= usuario.getLogin() %></a></td>
-                <td><a href="<%= link %>"><%= usuario.getRg() %></a></td>
-                <td><a href="<%= link %>"><%= usuario.getCpf() %></a></td>
+                <td><%= matricula.getNumero() %></td>
+                <td><%= matricula.getAluno().getId() %></td>
+                <td><%= matricula.getAluno().getNome() %></td>
+                <td><%= matricula.getStatus() %></td>
             </tr>
             <%
             }
