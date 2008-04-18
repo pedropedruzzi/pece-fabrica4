@@ -1,8 +1,6 @@
 <%@page contentType="text/html; charset=ISO-8859-1" %>
 <%@page import="br.usp.poli.pece.bl.Matricula"%>
 <%@page import="java.util.List"%>
-<%@page import="br.usp.poli.pece.db.DAOFactory"%>
-<%@page import="br.usp.poli.pece.db.DataBaseUtil"%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
@@ -19,8 +17,7 @@
             </tr>
             
             <%
-            DataBaseUtil.getSessionFactory().getCurrentSession().beginTransaction();
-            List<Matricula> matriculas = DAOFactory.getMatriculaDAO().findAll();
+            List<Matricula> matriculas = (List<Matricula>) request.getAttribute("matriculas");
             for (Matricula matricula : matriculas) {
             %>
             <tr>
@@ -31,7 +28,6 @@
             </tr>
             <%
             }
-            DataBaseUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
             %>
         </table>
     </body>
