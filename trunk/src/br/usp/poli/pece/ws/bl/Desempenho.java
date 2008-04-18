@@ -1,17 +1,17 @@
 package br.usp.poli.pece.ws.bl;
 
-
-import java.util.Date;
+import br.usp.poli.pece.bl.Inscricao;
 
 public class Desempenho {
 
-	private long cpf;
-	private long codDisciplina;	
-	private Date dataInclusao;
-	private float nota;
+	public long cpf;
+	public String codDisciplina;
+	public float nota;
 	
-	public Desempenho(Desempenho desempenho){		
-
+	public Desempenho(Inscricao i) {
+		this.cpf = i.getAluno().getCpf();
+		this.codDisciplina = i.getTurma().getDisciplina().getCodDisciplina();
+		this.nota = i.getNota()/10f;
 	}
 	
 }
