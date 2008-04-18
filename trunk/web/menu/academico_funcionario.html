@@ -35,15 +35,16 @@
 			curso = d.add(i++,root,'Gerenciar cursos');
 				d.add(i++,curso,'Inserir curso','../academico/cadastroCurso.jsp','','content');
 				d.add(i++,curso,'Alterar curso','example01.html');
-				d.add(i++,curso,'Buscar curso','../academico/listaCursos.jsp','','content');
+				d.add(i++,curso,'Buscar curso','../academico/academico_listacursos.jsp');
 				
 			materia = d.add(i++,root,'Gerenciar matérias');
 				d.add(i++,materia,'Inserir matérias','../academico/inserirMateria.jsp','','content');
 				d.add(i++,materia,'Alterar matérias','example01.html');
-				d.add(i++,materia,'Buscar matérias','../academico/listaMaterias.jsp','','content');
+				d.add(i++,materia,'Buscar matérias','../academico/buscarMateria.jsp','','content');
 				
 			aluno = d.add(i++,root,'Gerenciar alunos');
 				d.add(i++,aluno,'Inserir aluno','example01.html');
+				d.add(i++,aluno,'Alterar aluno','example01.html');
 				d.add(i++,aluno,'Buscar aluno','../academico/ListaUsuarios?tipo=Aluno','','content');
 			
 			professor = d.add(i++,root,'Gerenciar professores');
@@ -53,7 +54,7 @@
 				
 
 			professor = d.add(i++,root,'Gerenciar matrículas');
-				d.add(i++,matricula,'Listar matrículas','../academico/listaMatriculas.jsp','','content');
+				d.add(i++,professor,'Listar matrículas','../academico/listaMatriculas.jsp','','content');
 
 			
 			d.add(i++,root,'Acompanhar cursos','example01.html');
