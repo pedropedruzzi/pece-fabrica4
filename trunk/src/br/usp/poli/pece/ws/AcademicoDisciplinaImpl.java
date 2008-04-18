@@ -6,7 +6,7 @@ import javax.jws.WebService;
 
 import br.usp.poli.pece.db.DAOFactory;
 import br.usp.poli.pece.db.DataBaseUtil;
-import br.usp.poli.pece.ws.bl.Disciplina;;
+import br.usp.poli.pece.ws.bl.Disciplina;
 
 @WebService(endpointInterface="br.usp.poli.pece.ws.AcademicoDisciplina")
 public class AcademicoDisciplinaImpl implements AcademicoDisciplina {
