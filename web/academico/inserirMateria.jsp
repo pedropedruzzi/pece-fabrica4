@@ -15,7 +15,6 @@
 	        Nome:<br/><input type="text" name="nome" value="" size="50"/><br/>
 	        Códido da disciplina:<br/><input type="text" name="codDisciplina" value="" size="10" /><br/>
 	        Carga horária:<br/><input type="short" name="cargaHoraria" value="" size="4" /><br/>
-            Id Professor:<br/><input type="text" name="professor" value="" size="4" /><br/>
 	        Descrição:<br/><textarea name="descricao"></textarea><br/>
 	        Material de Apoio:<br/><textarea name="material"></textarea><br/>
 	        	        Curso:<br/>

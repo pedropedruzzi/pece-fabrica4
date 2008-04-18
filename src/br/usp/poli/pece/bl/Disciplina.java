@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import br.usp.poli.pece.db.DAOFactory;
+import br.usp.poli.pece.db.DisciplinaDAO;
 
 @Entity
 public class Disciplina {
@@ -81,5 +82,7 @@ public class Disciplina {
 		DAOFactory.getDisciplinaDAO().makePersistent(disciplina);
 	}
 	
-	
+	public static void cadstroDisciplina(Disciplina disciplina) {
+		DAOFactory.getDisciplinaDAO().makePersistent(disciplina);
+	}
 }

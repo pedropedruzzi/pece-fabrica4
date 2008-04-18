@@ -17,4 +17,6 @@ public class DisciplinaDAO extends GenericDAO<Disciplina> {
 	    return findUniqueResultByCriteria(c);
 	}
 
+	
+	
 }
