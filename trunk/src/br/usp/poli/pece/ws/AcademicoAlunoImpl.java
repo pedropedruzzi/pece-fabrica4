@@ -5,6 +5,7 @@ import java.util.List;
 import javax.jws.WebService;
 
 import br.usp.poli.pece.db.DAOFactory;
+import br.usp.poli.pece.db.DataBaseUtil;
 import br.usp.poli.pece.ws.bl.Aluno;
 
 @WebService(endpointInterface="br.usp.poli.pece.ws.AcademicoAluno")
@@ -24,6 +25,7 @@ public class AcademicoAlunoImpl implements AcademicoAluno {
 
 	@Override
 	public List<Aluno> listaTodosAlunos() {
+		DataBaseUtil.getSessionFactory().getCurrentSession().beginTransaction();
 		List<br.usp.poli.pece.bl.Aluno> lista = DAOFactory.getAlunoDAO().findAll();
 		List<Aluno> listaD = new LinkedList<Aluno>();
 		
@@ -31,6 +33,7 @@ public class AcademicoAlunoImpl implements AcademicoAluno {
 			listaD.add(new Aluno(a));
 		}
 		
+		DataBaseUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
 		return listaD;
 	}
 	
