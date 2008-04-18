@@ -18,7 +18,8 @@
             </tr>
             
             <%
-            List<Disciplina> materia = (List<Disciplina>) request.getAttribute("disciplinas");
+            DataBaseUtil.getSessionFactory().getCurrentSession().beginTransaction();
+            List<Disciplina> materia = DAOFactory.getDisciplinaDAO().findAll();
             for (Disciplina disciplina : materia) {
             %>
             <tr>
@@ -29,6 +30,7 @@
             </tr>
             <%
             }
+            DataBaseUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
             %>
         </table>
     </body>

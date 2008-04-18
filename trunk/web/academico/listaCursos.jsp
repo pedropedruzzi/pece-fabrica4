@@ -1,8 +1,7 @@
 <%@page import="br.usp.poli.pece.bl.Curso"%>
-<%@page import="java.util.List"%>
-
-<%@page import="br.usp.poli.pece.db.CursoDAO"%>
 <%@page import="br.usp.poli.pece.db.DAOFactory"%>
+<%@page import="br.usp.poli.pece.db.DataBaseUtil"%>
+<%@page import="java.util.List"%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,17 +17,19 @@
                 <th>Coordenador</th>
             </tr>
             <%
-            List<Curso> lista = (List<Curso>) request.getAttribute("cursos");
-            for (Curso curso : lista) {
+            DataBaseUtil.getSessionFactory().getCurrentSession().beginTransaction();
+            List<Curso> cursos = DAOFactory.getCursoDAO().findAll();
+            for (Curso curso : cursos) {
             %>
             <tr>
                 <td><%= curso.getCodCurso() %></td>
                 <td><%= curso.getNome() %></td>
                 <td><%= curso.getCargaHoraria() %></td>
-                <td><%= curso.getCoordenador() %></td>
+                <td><%= curso.getCoordenador().getNome() %></td>
             </tr>
             <%
             }
+            DataBaseUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
             %>
         </table>
     </body>
