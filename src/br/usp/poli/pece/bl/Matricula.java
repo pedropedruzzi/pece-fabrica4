@@ -3,14 +3,11 @@ package br.usp.poli.pece.bl;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -19,8 +16,7 @@ import br.usp.poli.pece.ws.Financeiro;
 import br.usp.poli.pece.ws.WebServicesClient;
 
 @Entity
-@Table(uniqueConstraints={@UniqueConstraint(columnNames={"aluno_id", "curso_id"}), @UniqueConstraint(columnNames={"numero"})})
-@SequenceGenerator(name="MATRICULA", sequenceName="seq_matricula")
+@Table(uniqueConstraints={ @UniqueConstraint(columnNames={"aluno_id", "curso_id"}) })
 public class Matricula {
 	@Id @GeneratedValue
 	protected long id;
@@ -32,10 +28,6 @@ public class Matricula {
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinColumn(name="curso_id", nullable=false, updatable=false)
 	private Curso curso;
-	
-	@Column(nullable=false)
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MATRICULA")
-	private int numero;
 	
 	private Date data;
 	
@@ -76,14 +68,6 @@ public class Matricula {
 
 	public void setCurso(Curso curso) {
 		this.curso = curso;
-	}
-
-	public int getNumero() {
-		return numero;
-	}
-
-	protected void setNumero(int numero) {
-		this.numero = numero;
 	}
 
 	public Date getData() {
