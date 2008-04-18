@@ -36,8 +36,8 @@ public class Turma {
 	@OneToMany(mappedBy="turma")
 	private Set<Inscricao> inscricoes;
 	
-	@OneToMany(mappedBy="turma")
-	private Set<Professor> professores;
+	@ManyToOne
+	private Professor professor;
 
 	public int getCodigo() {
 		return codigo;
@@ -76,29 +76,12 @@ public class Turma {
 		return this.getDisciplina().getCurso();
 	}
 	
-	public Set<Professor> getProfessor(){
-		return professores;
+	public Professor getProfessor() {
+		return professor;
 	}
 	
-	public String getNomeProfessor() {
-	/*Retorna uma string contendo os nomes dos professores concatenados.
-	 * 
-	 */	
-		String Nomes = null;
-		if(this.professores.size()<=1){
-			Nomes = professores.iterator().next().getNome();
-		}
-		else{
-			for(int k=1;k< professores.size(); k++){
-				Nomes = Nomes.concat(this.professores.iterator().next().getNome()).concat(", ");
-			}
-			Nomes = Nomes.concat(this.professores.iterator().next().getNome());
-		}
-			return Nomes;
-	}
-	
-	public void setProfessor (Set<Professor> professor){
-		this.professores = professor;
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
 	}
 
 }
