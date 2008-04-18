@@ -22,7 +22,7 @@ div.menu {
 	width: 140px;
 }
 div.sitemap {
-	width: 133px;
+	width: 200px;
 	text-align: center;
 	vertical-align: top;
 	position: absolute;
@@ -31,7 +31,7 @@ div.sitemap {
 	background-color: #FFFFFF;
 }
 div.content {
-	width: 788px;
+	width: 720px;
 	height: 100%;
 	text-align: right;
 	vertical-align: top;
@@ -42,11 +42,11 @@ div.content {
 }
 
 iframe.sitemap_frame {
-	width: 133px;
-	height: 300px;
+	width: 200px;
+	height: 400px;
 }
 iframe.content_frame {
-	width: 788px;
+	width: 740px;
 	height: 100%;
 }
 
