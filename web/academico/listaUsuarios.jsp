@@ -18,6 +18,12 @@
                 <th>RG</th>
                 <th>CPF</th>
             </tr>
+            
+           	<select name="TipoUsuario">
+				<option>Professor</option>
+				<option>Aluno</option>
+			</select>
+			
             <%
             List<Usuario> usuarios = (List<Usuario>) request.getAttribute("usuarios");
             for (Usuario usuario : usuarios) {
