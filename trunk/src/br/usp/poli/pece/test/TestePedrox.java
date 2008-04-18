@@ -29,7 +29,21 @@ public class TestePedrox {
 		dbs.save(c);
 		
 		Disciplina d = new Disciplina();
-		d.setCodDisciplina("PCS204");
+		d.setCodDisciplina("PCS2039");
+		d.setCargaHoraria((short)240);
+		d.setNome("Modelagem e Simulação de Sistemas Computacionais");
+		d.setCurso(c);
+		dbs.save(d);
+		
+		d = new Disciplina();
+		d.setCodDisciplina("PRO2273");
+		d.setCargaHoraria((short)240);
+		d.setNome("Introdução à Economia");
+		d.setCurso(c);
+		dbs.save(d);
+		
+		d = new Disciplina();
+		d.setCodDisciplina("PCS2044");
 		d.setCargaHoraria((short)240);
 		d.setNome("Laboratorio de Engenharia de Software II");
 		d.setCurso(c);
@@ -70,11 +84,15 @@ public class TestePedrox {
 		dbs.beginTransaction();
 		
 		criatudo(dbs);
+		criaAlunos(dbs);
 		
 	    dbs.getTransaction().commit();
 	}
 	
 	public static void main(String[] args) {
+		populate();
+		
+		if (true) return;
 		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
 		dbs.beginTransaction();
 		
