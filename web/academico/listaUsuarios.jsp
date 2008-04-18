@@ -23,7 +23,7 @@
             for (Usuario usuario : usuarios) {
             %>
             <tr>
-                <td><%= usuario.getClass().getName() %></td>
+                <td><%= usuario.getClass().getSimpleName() %></td>
                 <td><%= usuario.getId() %></td>
                 <td><%= usuario.getNome() %></td>
                 <td><%= usuario.getEmail() %></td>
