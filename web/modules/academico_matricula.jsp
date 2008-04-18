@@ -28,7 +28,7 @@
 	            <option value="<%= c.getCodCurso() %>"><%= c.getNome() %></option>
 	        <%
 	        
-	        DataBaseUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
+	        DataBaseUtil.getSessionFactory().getCurrentSession().close();
 	        }
 	        %>
 	        </select><br/><br/>
