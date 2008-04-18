@@ -1,5 +1,6 @@
 package br.usp.poli.pece.db;
 
+import br.usp.poli.pece.bl.Funcionario;
 import br.usp.poli.pece.bl.Professor;
 import br.usp.poli.pece.bl.Turma;
 
@@ -7,6 +8,7 @@ public class DAOFactory {
 	
 	// Inline concrete DAO implementations with no business-related data access methods.
 	public static class ProfessorDAO extends GenericDAO<Professor> {}
+	public static class FuncionarioDAO extends GenericDAO<Funcionario> {}
 	public static class TurmaDAO extends GenericDAO<Turma> {}
 	
 	private final static AlunoDAO alunoDAO = new AlunoDAO();
@@ -15,6 +17,7 @@ public class DAOFactory {
 	private final static CursoDAO cursoDAO = new CursoDAO();
 	private final static MatriculaDAO matriculaDAO = new MatriculaDAO();
 	private final static ProfessorDAO professorDAO = new ProfessorDAO();
+	private final static FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 	private final static TurmaDAO turmaDAO = new TurmaDAO();
 	
 	protected DAOFactory() {
@@ -43,6 +46,10 @@ public class DAOFactory {
 
 	public static ProfessorDAO getProfessorDAO() {
 		return professorDAO;
+	}
+
+	public static FuncionarioDAO getFuncionarioDAO() {
+		return funcionarioDAO;
 	}
 
 	public static TurmaDAO getTurmaDAO() {

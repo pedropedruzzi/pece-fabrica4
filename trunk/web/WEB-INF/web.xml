@@ -17,8 +17,8 @@
     </servlet>
     
     <servlet>
-       <servlet-name>ListaAlunos</servlet-name>
-       <servlet-class>br.usp.poli.pece.servlet.ListaAlunosServlet</servlet-class>
+       <servlet-name>ListaUsuarios</servlet-name>
+       <servlet-class>br.usp.poli.pece.servlet.ListaUsuariosServlet</servlet-class>
     </servlet>
     
     <servlet>
@@ -32,8 +32,8 @@
 	</servlet-mapping>
     
     <servlet-mapping>
-       <servlet-name>ListaAlunos</servlet-name>
-       <url-pattern>/academico/ListaAlunos</url-pattern>
+       <servlet-name>ListaUsuarios</servlet-name>
+       <url-pattern>/academico/ListaUsuarios</url-pattern>
     </servlet-mapping>
     
     <servlet-mapping>
