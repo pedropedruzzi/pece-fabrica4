@@ -18,7 +18,7 @@
                 <th>Coordenador</th>
             </tr>
             <%
-            List<Curso> lista = DAOFactory.getCursoDAO().findAll();
+            List<Curso> lista = (List<Curso>) request.getAttribute("cursos");
             for (Curso curso : lista) {
             %>
             <tr>
