@@ -20,16 +20,18 @@ public class Aluno {
 	}
 	
 	public Aluno(br.usp.poli.pece.bl.Aluno a) {
-		// TODO Criar um ws.aluno a partir de bl.Aluno
+		// Cria um ws.aluno a partir de bl.Aluno
+		id = a.getId();
 		cpf = a.getCpf();
 		nome = a.getNome();
 		sexo = a.getSexo();
 		dataNascimento = a.getDataNascimento();
 		
 		HistoricoProfissional hp = a.getHistoricoProfissional();
-		
-		empresaAtual = hp.getEmpresaAtual();
-		ramoAtividade = hp.getRamoAtividade();
-		cargo = hp.getCargo();
+		if (hp != null) {
+			empresaAtual = hp.getEmpresaAtual();
+			ramoAtividade = hp.getRamoAtividade();
+			cargo = hp.getCargo();
+		}
 	}
 }
