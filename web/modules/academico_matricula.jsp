@@ -18,14 +18,14 @@
 	        <input type="text" name="idAluno" value="" size="10"/><br/><br/>
 	        
 	        Curso:<br/>
-	        <select name="codCurso" size="1">
+	        <select name="idCurso" size="1">
 	        <%
 	        DataBaseUtil.getSessionFactory().getCurrentSession().beginTransaction();
 	        List<Curso> cursos = DAOFactory.getCursoDAO().findAll();
 	        
 	        for (Curso c : cursos) {
 	        %>
-	            <option value="<%= c.getCodCurso() %>"><%= c.getNome() %></option>
+	            <option value="<%= c.getId() %>"><%= c.getNome() %></option>
 	        <%
 	        
 	        DataBaseUtil.getSessionFactory().getCurrentSession().close();

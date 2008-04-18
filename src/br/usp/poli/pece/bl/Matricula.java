@@ -112,8 +112,12 @@ public class Matricula {
 		DAOFactory.getMatriculaDAO().makePersistent(matricula);
 
 		final Financeiro f = WebServicesClient.getFinanceiroWS();
-		if (!f.solicitaCobrancaTaxaInscricao(new br.usp.poli.pece.ws.bl.Aluno(aluno), curso.getCodCurso(), matricula.getId()))
-			System.err.println("Atenção: Financeiro não aceitou solicitacao de cobrança de taxa de inscrição!");
+		try {
+			if (!f.solicitaCobrancaTaxaInscricao(new br.usp.poli.pece.ws.bl.Aluno(aluno), curso.getCodCurso(), matricula.getId()))
+				System.err.println("Atenção: Financeiro não aceitou solicitacao de cobrança de taxa de inscrição!");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		return matricula;
 	}

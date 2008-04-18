@@ -36,7 +36,7 @@ public abstract class TransactionServlet extends HttpServlet {
 			dbs.getTransaction().rollback();
 			
 			// TODO: handle runtime exception, forwarding to error page, or whatever
-			
+			e.printStackTrace();
 			try {
 				request.setAttribute("erro", e.getMessage());
 				// forward to error page

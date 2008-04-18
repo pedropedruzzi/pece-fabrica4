@@ -46,7 +46,7 @@ public class Curso {
 	
 
 
-	protected long getId() {
+	public long getId() {
 		return id;
 	}
 

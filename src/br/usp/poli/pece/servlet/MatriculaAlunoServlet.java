@@ -13,9 +13,9 @@ public class MatriculaAlunoServlet extends TransactionServlet {
 	@Override
 	protected void doPostTransaction(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		long idAluno = Integer.parseInt(request.getParameter("idAluno"));
-		int codCurso = Integer.parseInt(request.getParameter("codCurso"));
+		long idCurso = Integer.parseInt(request.getParameter("idCurso"));
 
-		Matricula.realizaMatricula(idAluno, codCurso);
+		Matricula.realizaMatricula(idAluno, idCurso);
 	}
 
 	@Override
