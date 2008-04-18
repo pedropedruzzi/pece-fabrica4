@@ -1,18 +1,17 @@
 package br.usp.poli.pece.ws.bl;
 
-import java.util.Date;
 
-import br.usp.poli.pece.bl.estruturas.HistoricoProfissional;
+import java.util.Date;
 
 public class Desempenho {
 
-	public long cpf;
-	public long codDisciplina;	
-	public Date dataInclusao;
-	public float nota;
+	private long cpf;
+	private long codDisciplina;	
+	private Date dataInclusao;
+	private float nota;
 	
-	public Desempenho(){
-		
+	public Desempenho(Desempenho desempenho){		
+
 	}
 	
 }
