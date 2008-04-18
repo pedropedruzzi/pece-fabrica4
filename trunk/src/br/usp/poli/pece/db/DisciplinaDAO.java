@@ -12,7 +12,7 @@ public class DisciplinaDAO extends GenericDAO<Disciplina> {
 	}
 
 	public Disciplina findByCodigo(String codigo) {
-		Criterion c = Expression.eq("codigo", codigo);
+		Criterion c = Expression.eq("codDisciplina", codigo);
 	    
 	    return findUniqueResultByCriteria(c);
 	}

@@ -1,7 +1,11 @@
 package br.usp.poli.pece.ws;
 
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+
 import br.usp.poli.pece.ws.bl.Aluno;
 
+@WebService(name="Financeiro")
 public interface Financeiro {
 	/**
 	 * Deverá ser chamado pelo módulo acadêmico para solicitar a cobrança da taxa de inscrição padrão
@@ -11,6 +15,7 @@ public interface Financeiro {
 	 * @param idSolicitacao
 	 * @return true, se a solicitação foi aceita
 	 */
+	@WebMethod
 	public abstract boolean solicitaCobrancaTaxaInscricao(Aluno aluno, String curso, long idSolicitacao);
 	
 	/**
@@ -22,5 +27,6 @@ public interface Financeiro {
 	 * @param idMatricula
 	 * @return true, se a solicitação foi aceita
 	 */
+	@WebMethod
 	public abstract boolean solicitaMatricula(Aluno aluno, String curso, long idMatricula);
 }

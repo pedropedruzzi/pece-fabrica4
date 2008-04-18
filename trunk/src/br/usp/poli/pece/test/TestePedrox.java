@@ -13,18 +13,12 @@ import br.usp.poli.pece.db.DataBaseUtil;
 public class TestePedrox {
 
 	
-	public static void criatudo() {
-		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
-		dbs.beginTransaction();
-		
+	public static void criatudo(Session dbs) {
 		Professor p = new Professor();
 		p.setNome("Jorge Risco Becerra");
 		p.setEmail("jrisco@poli.usp.br");
 		p.setLogin("jrisco");
 		p.setSenha("1234");
-		p.setCelular(1234);
-		p.setTelefone(12345);
-		
 		dbs.save(p);
 
 		Curso c = new Curso();
@@ -32,7 +26,6 @@ public class TestePedrox {
 		c.setCodCurso("COMPCOOP");
 		c.setNome("Engenharia de Computacao (Curso Cooperativo)");
 		c.setCoordenador(p);
-		
 		dbs.save(c);
 		
 		Disciplina d = new Disciplina();
@@ -40,7 +33,6 @@ public class TestePedrox {
 		d.setCargaHoraria((short)240);
 		d.setNome("Laboratorio de Engenharia de Software II");
 		d.setCurso(c);
-		
 		dbs.save(d);
 		
 		Turma t = new Turma();
@@ -48,43 +40,44 @@ public class TestePedrox {
 		
 		dbs.save(t);
 	    
-	    dbs.getTransaction().commit();
 	}
 	
-	public static void criatudo2() {
-		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
-		dbs.beginTransaction();
-		
+	public static void criaAlunos(Session dbs) {
 		Aluno a = new Aluno();
-		a.setNome("Pedro Pedruzzi");
+		a.setNome("Pedro Rodrigues Nacione Pedruzzi");
 		a.setEmail("pedro.pedruzzi@poli.usp.br");
 		a.setLogin("pedro.pedruzzi");
 		a.setSenha("1234");
-		a.setCelular(1234);
-		a.setTelefone(12345);
-		
 		dbs.save(a);
-	    
-	    dbs.getTransaction().commit();
+		
+		a = new Aluno();
+		a.setNome("Grabiel Augusto de Resende");
+		a.setEmail("gabriel.resende@poli.usp.br");
+		a.setLogin("gabriel.resende");
+		a.setSenha("1234");
+		dbs.save(a);
+		
+		a = new Aluno();
+		a.setNome("Virgílio Vettorazzo");
+		a.setEmail("virgilio.vettorazzo@poli.usp.br");
+		a.setLogin("virgilio.vettorazzo");
+		a.setSenha("1234");
+		dbs.save(a);
 	}
 	
-	public static void old() {
+	public static void populate() {
 		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
 		dbs.beginTransaction();
 		
-		dbs.get(Turma.class, new Long(0));
+		criatudo(dbs);
 		
-		Professor risco = (Professor) dbs.createQuery("from Professor as p where p.login=?")
-	    	.setString(0, "jrisco").uniqueResult();
-		
-		System.out.println(risco.getNome());
-
+	    dbs.getTransaction().commit();
 	}
 	
 	public static void main(String[] args) {
-		criatudo();
+		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
+		dbs.beginTransaction();
 		
-		if (true) return;
 		Professor risco = (Professor) DAOFactory.getUsuarioDAO().findByLogin("jrisco");
 		Curso c = DAOFactory.getCursoDAO().findByCodigo("1234");
 		Disciplina d = DAOFactory.getDisciplinaDAO().findByCodigo("XYZ1234");
@@ -92,14 +85,5 @@ public class TestePedrox {
 		System.out.println(risco.getNome());
 		System.out.println(c.getNome());
 		System.out.println(d.getNome());
-		
-		Turma t2 = new Turma();
-		t2.setDisciplina(d);
-		
-
-		Session dbs = DataBaseUtil.getSessionFactory().getCurrentSession();
-		dbs.beginTransaction();
-		dbs.save(t2);
-		dbs.getTransaction().commit();
 	}
 }

@@ -10,16 +10,18 @@ public class WebServicesServer {
 	static final Logger logger = Logger.getLogger(WebServicesServer.class);
 	
 	private Endpoint alunos;
+	private Endpoint financeiro;
 	
 	public void start() {
 		logger.info("Starting Server... ");
-		String address = "http://localhost:9000/AcademicoAluno";
-		alunos = Endpoint.publish(address, new AcademicoAlunoImpl());
+		alunos = Endpoint.publish("http://0.0.0.0:9000/AcademicoAluno", new AcademicoAlunoImpl());
+		financeiro = Endpoint.publish("http://0.0.0.0:9000/AcademicoFinanceiro", new AcademicoFinanceiroImpl());
 		logger.info("Done!");
 	}
 	
 	public void stop() {
 		alunos.stop();
+		financeiro.stop();
 		alunos = null;
 	}
 
