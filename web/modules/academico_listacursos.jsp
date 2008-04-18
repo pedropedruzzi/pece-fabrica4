@@ -1,4 +1,4 @@
-<%@page import="br.usp.poli.pece.bl.Aluno"%>
+<%@page import="br.usp.poli.pece.bl.Curso"%>
 <%@page import="java.util.List"%>
 
 <%@page import="br.usp.poli.pece.db.CursoDAO"%>
