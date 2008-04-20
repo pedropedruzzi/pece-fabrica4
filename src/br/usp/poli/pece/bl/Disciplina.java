@@ -9,7 +9,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import br.usp.poli.pece.db.DAOFactory;
-import br.usp.poli.pece.db.DisciplinaDAO;
 
 @Entity
 public class Disciplina {

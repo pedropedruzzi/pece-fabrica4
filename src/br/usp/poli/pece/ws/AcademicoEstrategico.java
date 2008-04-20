@@ -4,6 +4,7 @@ import java.util.List;
 import javax.jws.WebService;
 
 import br.usp.poli.pece.ws.bl.Aluno;
+import br.usp.poli.pece.ws.bl.Desempenho;
 import br.usp.poli.pece.ws.bl.Disciplina;
 
 //Fábrica do Elefantinho
@@ -13,8 +14,7 @@ public interface AcademicoEstrategico {
 	public List<Aluno> consultaAluno(String strFiltro);
 	public List<Aluno> listaTodosAlunos();
 	//desempenho
-	public List<Aluno> consultaDesempenhoAluno(String strFiltro);
-	public List<Aluno> listaDesempenhoTodosAlunos();
+	public List<Desempenho> lista();
 	//disciplina
 	public List<Disciplina> listaTodasDisciplinas();
 }

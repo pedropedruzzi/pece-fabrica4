@@ -2,12 +2,12 @@ package br.usp.poli.pece.ws.bl;
 
 public class Disciplina {
 
-	protected long id;
-	private String codDisciplina;
-	private String nome;
-	private short cargaHoraria;
-	private String descricao;
-	private String materialApoio;
+	public long id;
+	public String codDisciplina;
+	public String nome;
+	public short cargaHoraria;
+	public String descricao;
+	public String materialApoio;
 
 	public Disciplina(br.usp.poli.pece.bl.Disciplina d) {
 
