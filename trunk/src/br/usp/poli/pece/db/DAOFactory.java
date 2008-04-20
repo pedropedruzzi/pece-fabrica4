@@ -1,6 +1,7 @@
 package br.usp.poli.pece.db;
 
 import br.usp.poli.pece.bl.Funcionario;
+import br.usp.poli.pece.bl.Inscricao;
 import br.usp.poli.pece.bl.Professor;
 import br.usp.poli.pece.bl.Turma;
 
@@ -10,6 +11,7 @@ public class DAOFactory {
 	public static class ProfessorDAO extends GenericDAO<Professor> {}
 	public static class FuncionarioDAO extends GenericDAO<Funcionario> {}
 	public static class TurmaDAO extends GenericDAO<Turma> {}
+	public static class InscricaoDAO extends GenericDAO<Inscricao> {}
 	
 	private final static AlunoDAO alunoDAO = new AlunoDAO();
 	private final static UsuarioDAO usuarioDAO = new UsuarioDAO();
@@ -19,6 +21,7 @@ public class DAOFactory {
 	private final static ProfessorDAO professorDAO = new ProfessorDAO();
 	private final static FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 	private final static TurmaDAO turmaDAO = new TurmaDAO();
+	private final static InscricaoDAO inscricaoDAO = new InscricaoDAO();
 	
 	protected DAOFactory() {
 		
@@ -54,6 +57,10 @@ public class DAOFactory {
 
 	public static TurmaDAO getTurmaDAO() {
 		return turmaDAO;
+	}
+
+	public static InscricaoDAO getInscricaoDAO() {
+		return inscricaoDAO;
 	}
 	
 }

@@ -4,9 +4,11 @@ import java.util.LinkedList;
 import java.util.List;
 import javax.jws.WebService;
 
+import br.usp.poli.pece.bl.Inscricao;
 import br.usp.poli.pece.db.DAOFactory;
 import br.usp.poli.pece.db.DataBaseUtil;
 import br.usp.poli.pece.ws.bl.Aluno;
+import br.usp.poli.pece.ws.bl.Desempenho;
 import br.usp.poli.pece.ws.bl.Disciplina;
 
 @WebService(endpointInterface="br.usp.poli.pece.ws.AcademicoAluno")
@@ -61,16 +63,19 @@ public class AcademicoEstrategicoImpl implements AcademicoEstrategico {
 	/***
 	 * DESEMPENHO
 	 */
-	//TODO: implementar funcoes
-	public List<Aluno> consultaDesempenhoAluno(String strFiltro)
-	{
-		List<Aluno> listaD = new LinkedList<Aluno>();
-		return listaD;
-	}
-	public List<Aluno> listaDesempenhoTodosAlunos()
-	{
-		List<Aluno> listaD = new LinkedList<Aluno>();
-		return listaD;
+	public List<Desempenho> lista() {
+		DataBaseUtil.getSessionFactory().getCurrentSession().beginTransaction();
+		
+		List<Inscricao> lista = DAOFactory.getInscricaoDAO().findAll();
+		List<Desempenho> desempenho = new LinkedList<Desempenho>();
+		
+		for (Inscricao i : lista) {
+			desempenho.add(new Desempenho(i));
+		}
+		
+		DataBaseUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
+		
+		return desempenho;
 	}
 	
 	
